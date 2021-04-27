@@ -1,7 +1,7 @@
 ---
-name: Task Card
-about: Task Card
-title: " [client / server] 작업 내용을 작성해 주세요"
+name: issue card
+about: client issue card
+title: "[client] 작업내용을 작성해주세요"
 labels: ''
 assignees: ''
 
