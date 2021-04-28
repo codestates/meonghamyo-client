@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import './component/css/Nav.css'
 import React from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
@@ -6,6 +6,9 @@ import ComunityList from './component/ComunityList.js';
 import { AiOutlineMenu } from 'react-icons/ai';
 import CategoryModal from './component/modal/CategoryModal';
 import LoginModal from './component/modal/LoginModal'
+import Signup from './component/Signup';
+import Mypage from './component/Mypage';
+
 
 class App extends React.Component {
   state = {
@@ -40,7 +43,7 @@ class App extends React.Component {
       </nav>
       <CategoryModal open={this.state.categoryModal} close={this.closeCategoryModal} />
       <LoginModal open={this.state.loginModal} close={this.closeLoginModal} />
-      <ComunityList />
+      <Mypage/>
     </div>
     );
   }
