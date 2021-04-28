@@ -2,7 +2,7 @@
 import './component/css/Nav.css'
 import React from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import ComunityList from './comunityList/ComunityList';
+import ComunityList from './component/ComunityList.js';
 import { AiOutlineMenu } from 'react-icons/ai';
 import CategoryModal from './component/modal/CategoryModal';
 import LoginModal from './component/modal/LoginModal'
