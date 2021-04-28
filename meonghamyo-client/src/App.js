@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import './component/css/Nav.css'
 import React from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
@@ -29,7 +29,7 @@ class App extends React.Component {
   render() {
     return (
     <div className="App">
-      <nav>
+      {/* <nav>
           <ul className='navContainer'>
               <li id='ham' onClick={this.openCategoryModal}>
                   <AiOutlineMenu />
@@ -39,10 +39,10 @@ class App extends React.Component {
                   로그인
               </li>
           </ul>
-      </nav>
+      </nav> */}
       <CategoryModal open={this.state.categoryModal} close={this.closeCategoryModal} />
       <LoginModal open={this.state.loginModal} close={this.closeLoginModal} />
-      <ComunityList />
+      <Signup/>
     </div>
     );
   }
