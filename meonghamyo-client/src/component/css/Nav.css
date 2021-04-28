@@ -1,0 +1,46 @@
+.navContainer {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+  background-color: #7B68EE;
+}
+#navLogo {
+  flex-grow: 1;
+  align-items: center;
+  color:white;
+  font-size: 30px;
+  font-weight: bold;
+}
+#ham {
+  width: 50px;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+}
+#ham:hover,
+#ham:focus {
+  color:black;
+}
+#loginBlock {
+  width: 50px;
+  height: 24px;
+  padding: 23px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+#loginBlock:hover{
+  color: #000;
+}
+body {
+    margin: 0;
+    margin-top: 70px;
+}
