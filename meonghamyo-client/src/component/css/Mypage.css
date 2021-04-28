@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.userInfoArea {
+  display: flex;
+  align-items: center;
+  border: solid 2px;
+  width: 1000px;
+  height: 400px;
+}
+
+.userInfoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 2px;
+  height: 200px;
+  width: 100%;
+}
+
+.userInfoText div {
+  padding-top: 20px;
+}
+
+.userImage {
+  padding: 40px;
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+}
+
+.btnDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* margin : 10px; */
+}
+
+.postList {
+  border: solid 2px;
+  /* margin : 10px; */
+  width: 100wh;
+  height: 400px;
+}
+
+.userPostList {
+  display: flex;
+  flex-direction: row;
+  width: 100wh;
+}
+
+.userId {
+  margin: 10px;
+}
+.userContent {
+  margin: 10px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 2px;
+}

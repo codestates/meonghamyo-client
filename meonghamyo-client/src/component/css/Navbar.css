@@ -1,0 +1,28 @@
+.Navbar {
+  display: flex;
+  width: 100vw;
+  height: 6vh;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.profileImg {
+  width: 2rem;
+  border-radius: 70%;
+  margin: 10px;
+}
+
+.burger {
+  margin: 10px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+}
