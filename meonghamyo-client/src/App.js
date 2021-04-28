@@ -6,6 +6,8 @@ import ComunityList from './component/ComunityList.js';
 import { AiOutlineMenu } from 'react-icons/ai';
 import CategoryModal from './component/modal/CategoryModal';
 import LoginModal from './component/modal/LoginModal'
+import Signup from './component/Signup';
+
 
 class App extends React.Component {
   state = {
