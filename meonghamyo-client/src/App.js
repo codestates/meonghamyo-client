@@ -1,5 +1,5 @@
 import './App.css';
-import './component/css/Nav.css'
+// import './component/css/Nav.css'
 import React from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import ComunityList from './component/ComunityList.js';
