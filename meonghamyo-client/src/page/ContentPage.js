@@ -29,19 +29,19 @@ function NewContent(){
                         <th className='commentCreateAt'>작성일</th>
                     </tr>
                     <tr>
-                        <td>엄준식</td>
-                        <td>귀여운 고양이다</td>
-                        <td >2021-04-28</td>
+                        <td className='tdNickName'>엄준식</td>
+                        <td className='tdComment'>귀여운 고양이다</td>
+                        <td className='tdCreatedAt'>2021-04-28</td>
                     </tr>
                     <tr>
-                        <td>나르</td>
-                        <td>슈슈파가</td>
-                        <td >2021-04-27</td>
+                        <td className='tdNickName'>나르</td>
+                        <td className='tdComment'>슈슈파가</td>
+                        <td className='tdCreatedAt'>2021-04-27</td>
                     </tr>
                     <tr>
-                        <td>포돌이</td>
-                        <td>잡았다 요놈</td>
-                        <td >2021-04-25</td>
+                        <td className='tdNickName'>포돌이</td>
+                        <td className='tdComment'>잡았다 요놈</td>
+                        <td className='tdCreatedAt'>2021-04-25</td>
                     </tr>
                 </table>
                 <div className='pagination'>- 1 2 3 4 5 -</div>

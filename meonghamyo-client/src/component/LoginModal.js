@@ -9,10 +9,18 @@ function LoginModal({ open, close }) {
                 <div className='loginBlock'>
                     <span className='close' onClick={close}>&times;</span>
                     <div className='loginInfo'>
-                        유저 정보 내놔
-                        <div>이메일<input></input></div>
-                        <div>비밀번호<input></input></div>
-                    </div> 
+                        <div className='emailAndPw'>
+                            <div className='emailInputBlock'>
+                                이메일
+                                <input></input>
+                            </div>
+                            <div className='pwInputBlock'>
+                                비밀번호
+                                <input></input>
+                            </div>
+                        </div>
+                        <button className='loginBtn'> 로그인 </button>
+                    </div>
                 </div>
             </div>
             ):null}
