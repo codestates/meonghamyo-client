@@ -1,52 +1,55 @@
 import './App.css';
 import './component/css/Nav.css'
-import React from 'react';
+import React, { useState } from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import ComunityList from './component/ComunityList.js';
+import ComunityList from './page/ComunityList.js';
+import ContentPage from './page/ContentPage.js'
 import { AiOutlineMenu } from 'react-icons/ai';
-import CategoryModal from './component/modal/CategoryModal';
+import CategoryModal from './component/CategoryModal';
 import LoginModal from './component/modal/LoginModal'
 import Signup from './component/Signup';
 import Mypage from './component/Mypage';
 
 
-class App extends React.Component {
-  state = {
-    categoryModal: false,
-    loginModal: false
+function App(){
+  const [categoryModal, setCategoryModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+  
+  const openCategoryModal = () => {
+    setCategoryModal(true);
   }
-  openCategoryModal = () => {
-    this.setState({ categoryModal: true });
+  const closeCategoryModal = () => {
+    setCategoryModal(false);
   }
-  closeCategoryModal = () => {
-    this.setState({ categoryModal: false });
+  const openLoginModal = () => {
+    setLoginModal(true);
   }
-  openLoginModal = () => {
-    this.setState({ loginModal: true });
+  const closeLoginModal = () => {
+    setLoginModal(false);
   }
-  closeLoginModal = () => {
-    this.setState({ loginModal: false });
-  }
-  render() {
+
     return (
     <div className="App">
       <nav>
           <ul className='navContainer'>
-              <li id='ham' onClick={this.openCategoryModal}>
+              <li id='ham' onClick={openCategoryModal}>
                   <AiOutlineMenu />
               </li>
               <li id='navLogo'>MeongHaMyo</li>
-              <li id='loginBlock' onClick={this.openLoginModal}>
+              <li id='loginBlock' onClick={openLoginModal}>
                   로그인
               </li>
           </ul>
       </nav>
-      <CategoryModal open={this.state.categoryModal} close={this.closeCategoryModal} />
-      <LoginModal open={this.state.loginModal} close={this.closeLoginModal} />
-      <Mypage/>
+
+      <CategoryModal open={categoryModal} close={closeCategoryModal} />
+      <LoginModal open={loginModal} close={closeLoginModal} />
+      {/* <ComunityList /> */}
+      <ContentPage />
+
     </div>
     );
-  }
+    
 }
 
 export default App;
