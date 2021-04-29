@@ -1,0 +1,116 @@
+
+  .userInfoArea {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+  }
+  
+  .userInfoText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: solid 2px;
+    height: 300px;
+    width: 100%;
+  }
+
+  .userInfoText span{
+    color: #404040;
+    font-size: 14px;
+  }
+
+  .userInfoText div{
+      padding-left: 40px;
+  }
+  
+
+  
+  .userImage {
+    padding: 40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 70%;
+  }
+  
+  .modifyBtnDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .listBtnDiv {
+    display : flex;
+    justify-content: flex-start;
+  }
+  
+  .postList {
+    border: solid 1px;
+    width: 100%;
+    height: 400px;
+  }
+  
+  .userPostList {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .userId {
+    margin: 10px;
+  }
+  .userContent {
+    margin: 10px;
+  }
+  
+  button{
+      background-color: black;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      margin: 2px;
+  }
+  
+  .mypageTitle{
+      text-align: left;
+      padding : 30px;
+  }
+
+  .userInfoTable {
+      width : 100%;
+      border-spacing: 25px;
+  }
+
+  .userInfoTable tr{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.userInfoTable tr td {
+  
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.userInfoTable input {
+  width: 150px;
+  height: 20px;
+}
+
+.currentPwd{
+  margin-left: 40px;
+  width: 150px;
+  height: 20px;
+}
+
+.newPwd{
+  margin-left: 55px;
+  width: 150px;
+  height: 20px;
+}
+
+.newPwdCheck{
+  margin-left: 10px;
+  width: 150px;
+  height: 20px;
+}

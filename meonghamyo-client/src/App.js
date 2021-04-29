@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import './component/css/Nav.css'
 import React, { useState } from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
@@ -7,6 +7,9 @@ import ContentPage from './page/ContentPage.js'
 import { AiOutlineMenu } from 'react-icons/ai';
 import CategoryModal from './component/CategoryModal';
 import LoginModal from './component/modal/LoginModal'
+import Signup from './component/Signup';
+import Mypage from './component/Mypage';
+
 
 function App(){
   const [categoryModal, setCategoryModal] = useState(false);
@@ -38,10 +41,12 @@ function App(){
               </li>
           </ul>
       </nav>
+
       <CategoryModal open={categoryModal} close={closeCategoryModal} />
       <LoginModal open={loginModal} close={closeLoginModal} />
       {/* <ComunityList /> */}
       <ContentPage />
+
     </div>
     );
     
