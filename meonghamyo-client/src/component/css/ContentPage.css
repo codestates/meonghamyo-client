@@ -1,0 +1,51 @@
+.contentPage {
+    text-align: center;
+    align-items: center;
+}
+.titleBar {
+    display: flex;
+    margin: 50px;
+}
+.writer {
+    width: 100px;
+    padding: 20px;
+    border: solid 2px;
+}
+.title {
+    flex-grow: 1;
+    margin: 0;
+    padding: 20px;
+    border: solid 2px;
+}
+.dateOfUpload {
+    width: 100px;
+    padding: 20px;
+    border: solid 2px;
+}
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    margin-bottom: 10px;
+}
+.contentWord {
+    width: 60%;
+    height: 200px;
+    margin-top: 20px;
+    border: solid 2px;
+}
+.contentBtnBox {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 20%;
+}
+.contentBtn {
+    margin: 3px;
+}
+.commentBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:30px
+}
