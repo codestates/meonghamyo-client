@@ -1,0 +1,11 @@
+.Banner {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.banner {
+   margin-top: 4%;
+   border-radius: 20%;
+   width: 45%;
+}
