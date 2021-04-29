@@ -1,10 +1,9 @@
 .inputArea {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 20px;
-    text-align: left;
-    margin-left: 50px;
+    padding-left: 585px;
   }
   
   .inputAreaBirth {
@@ -15,11 +14,10 @@
     margin-left: 50px;
   }
   
-  span {
+  .inputArea span {
     color: #404040;
     font-size: 14px;
     position: relative;
-    padding: 0 200px 0 0;
     margin-bottom: 8px;
   }
   
