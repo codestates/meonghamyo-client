@@ -1,0 +1,29 @@
+.PreSaleListHeader {
+   background-color: #282c34;
+   min-height: 5vh;
+   display: flex;
+   /* flex-direction: column; */
+   align-items: center;
+   justify-content: center;
+   font-size: calc(10px + 2vmin);
+   color: white;
+   width: 20%;
+   margin-left: 40%;
+   margin-top: 3%;
+   border-radius: 5%;
+}
+.ButtonList {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.buttonList {
+   border-radius: 10%;
+   width: 10%;
+   height: 80%;
+   padding: 5px 0;
+   margin-bottom: 2%;
+}
+.listName {
+   font-weight: bold;
+}
