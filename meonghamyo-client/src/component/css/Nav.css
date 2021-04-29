@@ -14,11 +14,13 @@
 #navLogo {
   flex-grow: 1;
   align-items: center;
+  text-align: center;
   color:white;
   font-size: 30px;
   font-weight: bold;
 }
 #ham {
+  margin-left: 20px;
   width: 50px;
   cursor: pointer;
   color: white;
@@ -41,6 +43,6 @@
   color: #000;
 }
 body {
-    margin: 0;
-    margin-top: 70px;
+    margin-top: 0;
+    padding-top: 70px;
 }
