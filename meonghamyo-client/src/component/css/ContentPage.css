@@ -49,3 +49,33 @@
     align-items: center;
     margin:30px
 }
+.commentTable {
+    width: 60%;
+    border: solid 2px;
+    border-collapse: collapse;
+}
+.commentTable * {
+    border-bottom: solid 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.commentNickName {
+    padding-left: 20px;
+    text-align: left;
+}
+.commentWord {
+    padding-left: 20px;
+    text-align: left;
+}
+.tdNickName {
+    text-align: left;
+    width: 100px;
+    padding-left: 20px;
+}
+.tdComment {
+    text-align: left;
+    padding-left: 20px;
+}
+.tdCreatedAt {
+    width: 100px;
+}

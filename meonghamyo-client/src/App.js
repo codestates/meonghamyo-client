@@ -45,8 +45,8 @@ function App(){
       <CategoryModal open={categoryModal} close={closeCategoryModal} />
       <LoginModal open={loginModal} close={closeLoginModal} />
       {/* <ComunityList /> */}
-      {/* <ContentPage /> */}
-      <Mypage />
+      <ContentPage />
+      {/* <Mypage /> */}
       {/* <Signup /> */}
 
     </div>
