@@ -1,0 +1,11 @@
+.Footer {
+   text-align: center;
+   vertical-align: bottom;
+   -webkit-user-modify: read-write-plaintext-only;
+   color: white;
+   background-color: #282c34;
+   border-top: outset;
+   height: 60px;
+   bottom: 0;
+   width: 100%;
+}

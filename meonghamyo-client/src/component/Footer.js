@@ -1,12 +1,10 @@
 import React from "react";
-import "../Footer.css";
+import "./css/Footer.css";
 
 function Footer() {
    return (
       <div className="Footer">
-         <div>Meonghamyo</div>
-         <div>Meonghamyo</div>
-         <div>Meonghamyo</div>
+         Copyright 2021. Meonghamyo. All rights reserved.
       </div>
    );
 }

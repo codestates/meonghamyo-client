@@ -1,0 +1,25 @@
+.itemTitle {
+   text-align: center;
+   font-weight: bold;
+}
+.item {
+   padding: 2%;
+   width: 70%;
+   height: 40%;
+   border: 0.2rem solid gray;
+   border-radius: 15%;
+   margin-top: 10%;
+   margin-bottom: 5%;
+   text-align: center;
+}
+
+.image {
+   width: 70%;
+   margin-top: 12%;
+}
+.itemGroup {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 5%;
+}

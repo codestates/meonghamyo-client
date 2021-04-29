@@ -1,11 +1,52 @@
 import React from "react";
-import "../PreSaleListItem.css";
+import "./css/PreSaleListItem.css";
+import image from "../image/profile.jpeg";
+
 function PreSaleListItem() {
    return (
-      <div className="item">
-         <FontAwesomeIcon icon={faBars} className="bars"></FontAwesomeIcon>
-         <div className="title">Meonghamyo</div>
-         <img src={profile} className="profile"></img>
+      <div className="itemGroup">
+         <div>
+            <div className="item">
+               <img src={image} className="image"></img>
+               <h4 className="itemTitle">강아지 분양합니다</h4>
+               <hr />
+               <h4>해시태그</h4>
+            </div>
+            <div className="item">
+               <img src={image} className="image"></img>
+               <h4 className="itemTitle">강아지 분양합니다</h4>
+               <hr />
+               <h4>해시태그</h4>
+            </div>
+         </div>
+         <div>
+            <div className="item">
+               <img src={image} className="image"></img>
+               <h4 className="itemTitle">강아지 분양합니다</h4>
+               <hr />
+               <h4>해시태그</h4>
+            </div>
+            <div className="item">
+               <img src={image} className="image"></img>
+               <h4 className="itemTitle">강아지 분양합니다</h4>
+               <hr />
+               <h4>해시태그</h4>
+            </div>
+         </div>
+         <div>
+            <div className="item">
+               <img src={image} className="image"></img>
+               <h4 className="itemTitle">강아지 분양합니다</h4>
+               <hr />
+               <h4>해시태그</h4>
+            </div>
+            <div className="item">
+               <img src={image} className="image"></img>
+               <h4 className="itemTitle">강아지 분양합니다</h4>
+               <hr />
+               <h4>해시태그</h4>
+            </div>
+         </div>
       </div>
    );
 }

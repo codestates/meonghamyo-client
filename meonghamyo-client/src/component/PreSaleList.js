@@ -1,14 +1,17 @@
 import React from "react";
-import "../PreSaleList.css";
-
+import "./css/PreSaleList.css";
+import PreSaleListItem from "./PreSaleListItem";
+// import { Link } from "react-router-dom";
 function PreSaleList() {
    return (
       <div className="list">
          <header className="PreSaleListHeader">
-            <div>분양 리스트</div>
-            <button>더보기</button>
+            <div className="listName">분양 리스트</div>
          </header>
-         {/* 분양 아이템 컴포넌트*/}
+         <PreSaleListItem></PreSaleListItem>
+         <div className="ButtonList">
+            <button className="buttonList">리스트 더보기</button>
+         </div>
       </div>
    );
 }
