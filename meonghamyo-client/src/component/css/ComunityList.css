@@ -37,11 +37,6 @@
   text-align: right;
   padding-right: 15%;
 }
-.newContentBtn {
-  background-color: #6A5ACD;
-  color: white;
-  font-weight: bold;
-}
 .newContentBtn:hover {
   cursor: pointer;
 }

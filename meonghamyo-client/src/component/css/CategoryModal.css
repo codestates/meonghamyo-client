@@ -12,10 +12,10 @@
     background-color: rgba(0,0,0,0.4); 
 }
 .modalContent { /*카테고리 모달*/
-  background-color: #6A5ACD;
+  background-color: black;
   margin: 0; 
   padding: 20px;
-  border: 1px solid #6A5ACD;
+  border: 1px solid black;
   width: 300px; 
   height: 100%;
   align-items: center;
@@ -28,7 +28,7 @@
   font-weight: bold;
 }
 .close:hover{
-  color: black;
+  color: red;
   text-decoration: none;
   cursor: pointer;
 }
@@ -47,6 +47,6 @@
   padding: 15px;
 }
 .category:hover {
-  color: #000;
+  color: red;
   cursor:pointer;
 }
