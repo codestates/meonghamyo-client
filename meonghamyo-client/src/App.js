@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import './component/css/Nav.css'
 import React, { useState } from 'react';
 // import { Switch, Route, Redirect, withRouter } from "react-router-dom";
@@ -6,9 +6,9 @@ import ComunityList from './page/ComunityList.js';
 import ContentPage from './page/ContentPage.js'
 import { AiOutlineMenu } from 'react-icons/ai';
 import CategoryModal from './component/CategoryModal';
-import LoginModal from './component/modal/LoginModal'
-import Signup from './component/Signup';
-import Mypage from './component/Mypage';
+import LoginModal from './component/LoginModal'
+import Mypage from './page/Mypage'
+import Signup from './page/Signup'
 
 
 function App(){
@@ -45,7 +45,9 @@ function App(){
       <CategoryModal open={categoryModal} close={closeCategoryModal} />
       <LoginModal open={loginModal} close={closeLoginModal} />
       {/* <ComunityList /> */}
-      <ContentPage />
+      {/* <ContentPage /> */}
+      <Mypage />
+      {/* <Signup /> */}
 
     </div>
     );

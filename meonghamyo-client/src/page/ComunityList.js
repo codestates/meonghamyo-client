@@ -4,9 +4,9 @@ import '../component/css/ComunityList.css'
 function ComunityList() {
         return(
             <div>
-                <h1>커뮤니티 게시판</h1>
+                <h1 className='comunityBox'>커뮤니티 게시판</h1>
                 <div id='main'>
-                    <table>
+                    <table className='comunnityTable'>
                         <tr>
                             <th className='contentIdx'>번호</th>
                             <th className='contentTitle'>제목</th>
