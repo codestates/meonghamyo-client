@@ -6,14 +6,15 @@ import ComunityList from './component/ComunityList.js';
 import { AiOutlineMenu } from 'react-icons/ai';
 import CategoryModal from './component/modal/CategoryModal';
 import LoginModal from './component/modal/LoginModal'
-import Signup from './component/Signup';
-import Mypage from './component/Mypage';
+import Signup from './page/Signup';
+import Mypage from './page/Mypage';
 
 
 class App extends React.Component {
   state = {
     categoryModal: false,
-    loginModal: false
+    loginModal: false,
+    
   }
   openCategoryModal = () => {
     this.setState({ categoryModal: true });
@@ -43,7 +44,9 @@ class App extends React.Component {
       </nav>
       <CategoryModal open={this.state.categoryModal} close={this.closeCategoryModal} />
       <LoginModal open={this.state.loginModal} close={this.closeLoginModal} />
-      <Mypage/>
+      {/* <Mypage></Mypage>
+       */}
+      <Signup></Signup>
     </div>
     );
   }
