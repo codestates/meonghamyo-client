@@ -10,6 +10,7 @@ const fakeuser = {
             "chatBox": "chatBox",   
             "createdAt": "2020/04/28",
             "updatedAt": "updated time",
+            "image": "https://studyclix.blob.core.windows.net/static/content/file/avatars/b/b2a179c4-bae4-4eaa-ae2e-6a4b8b5f720a.png",
         },
         {
             "id": 2,
@@ -21,6 +22,8 @@ const fakeuser = {
             "chatBox": "야옹야옹야옹야옹야옹야옹",   
             "createdAt": "2020/04/30",
             "updatedAt": "updated time 2",
+            "image": "https://opgg-com-image.akamaized.net/attach/images/20200531064223.1202297.jpg",
+
         },
     ]
     
