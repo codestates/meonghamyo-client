@@ -9,7 +9,7 @@
   height: 70px;
   margin: 0;
   padding: 0;
-  background-color: #7B68EE;
+  background-color: black;
 }
 #navLogo {
   flex-grow: 1;
@@ -28,7 +28,7 @@
 }
 #ham:hover,
 #ham:focus {
-  color:black;
+  color:red;
 }
 #loginBlock {
   width: 50px;
@@ -40,7 +40,7 @@
   font-weight: bold;
 }
 #loginBlock:hover{
-  color: #000;
+  color: red;
 }
 body {
     margin-top: 0;
