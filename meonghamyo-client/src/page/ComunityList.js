@@ -14,6 +14,7 @@ function ComunityList() {
                             <th className='contentTitle'>제목</th>
                             <th className='createAt'>작성일</th>
                         </tr>
+                        {/* {fakedata.fakecontent} */}
                         <tr>
                             <td className='cumunityCounter'>{counter+1}</td>
                             <td className='cumunityContent'>{fakedata.fakecontent.data[1].title}</td>

@@ -1,46 +1,78 @@
 import React, { useState } from "react";
 import "../component/css/Mypage.css";
-import { AiOutlineComment } from 'react-icons/ai';
-const Mypage = (props) => {
+import { AiOutlineComment } from "react-icons/ai";
+import { FaUserAltSlash } from "react-icons/fa";
+const Mypage = ({ fakeUser, fakeContent, fakeComment }) => {
   const [isModify, setisModify] = useState(false);
   const [listCheck, setlistCheck] = useState(true);
 
   const userPostList = () => {
     if (listCheck) {
-      return (
+      return fakeContent === null ? (
+        <>
+          <h1 className="h1PostComment" style={{ color: "#9a9a9a" }}>
+            아직 작성한 게시물이 없습니다.
+          </h1>
+          <h1 className="h1PostComment" style={{ color: "#9a9a9a" }}>
+            게시물을 작성해보세요 !
+          </h1>
+          <AiOutlineComment
+            className="iconPostComment"
+            style={{ color: "#9a9a9a" }}
+            size="80"
+          />
+        </>
+      ) : (
         <>
           <div className="userPostList">
-            <span className="userId">hide on bush</span>
-            <div className="userContent">안녕하세요 분양 어쩌구 저쩌구</div>
-          </div>
-          <hr></hr>
-          <div className="userPostList">
-            <span className="userId">hide on bush</span>
-            <div className="userContent">안녕하세요 프로젝트 입니다</div>
+            <span className="userId">{fakeUser.nickname}</span>
+            <div className="userContent">{fakeContent.title}</div>
           </div>
           <hr></hr>
         </>
       );
     } else {
-      return (
+      return fakeComment === null ? (
         <>
-          <h1 style={{ color: "#9a9a9a" }}>
-             아직 작성한 댓글이 없습니다.
+          <h1 className="h1PostComment" style={{ color: "#9a9a9a" }}>
+            아직 작성한 댓글이 없습니다.
           </h1>
-          <h1 style={{ color: "#9a9a9a" }}>댓글을 작성해보세요 !</h1>
-          <AiOutlineComment style={{ color: "#9a9a9a" }} size="80"/> 
+          <h1 className="h1PostComment" style={{ color: "#9a9a9a" }}>
+            댓글을 작성해보세요 !
+          </h1>
+          <AiOutlineComment
+            className="iconPostComment"
+            style={{ color: "#9a9a9a" }}
+            size="80"
+          />
+        </>
+      ) : (
+        <>
+          <div className="userCommentList">
+            <span className="userId">{fakeUser.nickname}</span>
+            <div className="userContent">{fakeComment.content}</div>
+          </div>
+          <hr></hr>
         </>
       );
     }
   };
   const userInfoTable = () => {
     if (isModify) {
-      return (
+      return fakeUser === null ? (
+        <>
+          <FaUserAltSlash
+            style={{ color: "#9a9a9a", marginLeft: "200" }}
+            size="80"
+          />
+          <div className="userNotFound"> 회원정보가 존재하지 않습니다</div>
+        </>
+      ) : (
         <>
           <table className="userInfoTable">
             <tr>
               아이디(이메일)
-              <td>tes123213t@gmail.com </td>
+              <td>{fakeUser.email}</td>
             </tr>
             <tr>
               이름
@@ -56,25 +88,33 @@ const Mypage = (props) => {
             </tr>
             <tr>
               생년월일
-              <td>2021/04/28</td>
+              <td>{fakeUser.birth}</td>
             </tr>
           </table>
         </>
       );
     } else {
-      return (
+      return fakeUser === null ? (
+        <>
+          <FaUserAltSlash
+            style={{ color: "#9a9a9a", marginLeft: "200" }}
+            size="80"
+          />
+          <div className="userNotFound"> 회원정보가 존재하지 않습니다</div>
+        </>
+      ) : (
         <table className="userInfoTable">
           <tr>
             아이디(이메일)
-            <td>test@gmail.com </td>
+            <td>{fakeUser.email} </td>
           </tr>
           <tr>
             이름
-            <td>카밀 </td>
+            <td>{fakeUser.name} </td>
           </tr>
           <tr>
             닉네임
-            <td>hide on bush </td>
+            <td>{fakeUser.nickname} </td>
           </tr>
           <tr>
             비밀번호 변경
@@ -96,7 +136,7 @@ const Mypage = (props) => {
           </tr>
           <tr>
             생년월일
-            <td>2021/04/28</td>
+            <td>{fakeUser.birth}</td>
           </tr>
         </table>
       );
@@ -120,22 +160,31 @@ const Mypage = (props) => {
         {isModify ? (
           <>
             <button className="userModifyAccessBtn">확인</button>
-            <button className="userModifyCancelBtn" onClick={()=>{setisModify(false)}}>취소</button>
+            <button
+              className="userModifyCancelBtn"
+              onClick={() => {
+                setisModify(false);
+              }}
+            >
+              취소
+            </button>
           </>
         ) : (
           <>
-            <button className="userModifyBtn" onClick={()=>{setisModify(true)}}>
+            <button
+              className="userModifyBtn"
+              onClick={() => {
+                setisModify(true);
+              }}
+            >
               회원정보 수정
             </button>
-            <button className="userLeaveBtn" onClick={()=>{}}>회원 탈퇴</button>
+            <button className="userLeaveBtn" onClick={() => {}}>
+              회원 탈퇴
+            </button>
           </>
         )}
-        {/* <button className="userModifyBtn" onClick={modifyToggle}>
-          회원정보 수정
-        </button>
-        <button className="userLeaveBtn">회원 탈퇴</button> */}
       </div>
-
       <div className="postList">
         <h1>내가 쓴 글 리스트</h1>
         <div className="listBtnDiv">
