@@ -53,6 +53,16 @@
 }
 #signupBlock:hover{
   color: red;
+
+.profileImg {
+  width: 50px;
+  height: 24px;
+  padding: 23px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+
 }
 body {
     margin-top: 0;

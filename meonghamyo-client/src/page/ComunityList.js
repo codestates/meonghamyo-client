@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../component/css/ComunityList.css';
-import '../fakedata';
 import fakedata from '../fakedata';
 
 function ComunityList() {
@@ -17,9 +16,9 @@ function ComunityList() {
                         </tr>
                         {/* {fakedata.fakecontent} */}
                         <tr>
-                            <td className='cumunityCounter'>{counter++}</td>
-                            <td className='cumunityContent'>이거</td>
-                            <td className='cumunityCreatedAt'>2021-04-28</td>
+                            <td className='cumunityCounter'>{counter+1}</td>
+                            <td className='cumunityContent'>{fakedata.fakecontent.data[1].title}</td>
+                            <td className='cumunityCreatedAt'>{fakedata.fakecontent.data[1].createdAt}</td>
                         </tr>
                     </table>
                 </div>

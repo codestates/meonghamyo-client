@@ -10,29 +10,33 @@ import LoginModal from "./component/LoginModal";
 import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
 import fakedata from "./fakedata";
+import Nav from './component/Nav';
 
 function App() {
-  const [categoryModal, setCategoryModal] = useState(false);
-  const [loginModal, setLoginModal] = useState(false);
   const [fakeUser, setfakeUser] = useState(fakedata.fakeuser.data[0]);
   const [fakeContent, setfakeContent] = useState(fakedata.fakecontent.data[0]);
   const [fakeComment, setfakeComment] = useState(fakedata.fakecomment.data[0]);
-
-  const openCategoryModal = () => {
+  const [categoryModal, setCategoryModal] = useState(false); // 덕
+  const [loginModal, setLoginModal] = useState(false);  // 덕
+  const [isLogined, setIsLogined] = useState(false);  // 덕
+  const openCategoryModal = () => { // 덕
     setCategoryModal(true);
-  };
-  const closeCategoryModal = () => {
+  }
+  const closeCategoryModal = () => { // 덕
     setCategoryModal(false);
-  };
-  const openLoginModal = () => {
+  }
+  const openLoginModal = () => { // 덕
     setLoginModal(true);
-  };
-  const closeLoginModal = () => {
+  }
+  const closeLoginModal = () => { // 덕
     setLoginModal(false);
   };
   const handleAddUser = (submitUserInfo) => {
     console.log("바뀌기전",fakeUser)
     setfakeUser(submitUserInfo)
+  }
+  const userLogin = () => { // 덕
+    setIsLogined(true);
   }
 
   return (
@@ -66,6 +70,21 @@ function App() {
         <Signup fakeUser ={fakeUser}handleAddUser={handleAddUser}></Signup>
       </Route>
         </Switch>
+      <Nav 
+      categoryModal={categoryModal} 
+      openCategoryModal={openCategoryModal} 
+      closeCategoryModal={closeCategoryModal} 
+      loginModal={loginModal} 
+      openLoginModal={openLoginModal} 
+      closeLoginModal={closeLoginModal} 
+      isLogined={isLogined} 
+      userLogin={userLogin} />
+     
+      {/* <ComunityList /> */}
+      <ContentPage />
+      {/* <Mypage /> */}
+      {/* <Signup /> */}
+
     </div>
   );
 }
