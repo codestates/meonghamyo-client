@@ -41,22 +41,6 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
-        <ul className="navContainer">
-          <li id="ham" onClick={openCategoryModal}>
-            <AiOutlineMenu />
-          </li>
-          <li id="navLogo">MeongHaMyo</li>
-          <li id="loginBlock" onClick={openLoginModal}>
-            로그인
-          </li>
-          <Link id="signupBlock" to="/signup">회원가입</Link>
-          
-        </ul>
-      </nav>
-
-      <CategoryModal open={categoryModal} close={closeCategoryModal} />
-      <LoginModal open={loginModal} close={closeLoginModal} />
       <Switch>
       <Route path="/mypage">
       <Mypage
@@ -80,10 +64,7 @@ function App() {
       isLogined={isLogined} 
       userLogin={userLogin} />
      
-      {/* <ComunityList /> */}
       <ContentPage />
-      {/* <Mypage /> */}
-      {/* <Signup /> */}
 
     </div>
   );
