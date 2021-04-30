@@ -55,6 +55,13 @@
   width: 100%;
 }
 
+.h1PostComment{
+  padding-left: 500px;
+}
+
+.iconPostComment{
+  padding-left: 620px;
+}
 .userId {
   margin: 10px;
 }
@@ -112,4 +119,11 @@ height: 20px;
 margin-left: 10px;
 width: 150px;
 height: 20px;
+}
+
+.userNotFound{
+  padding-left : 100px;
+  color : #9a9a9a;
+  font-weight: 600;
+  font-size: 40px;
 }
