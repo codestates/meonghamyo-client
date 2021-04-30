@@ -9,41 +9,42 @@ import CategoryModal from './component/CategoryModal';
 import LoginModal from './component/LoginModal'
 import Mypage from './page/Mypage'
 import Signup from './page/Signup'
+import fakedata from './fakedata';
+import Nav from './component/Nav';
 
 
 function App(){
-  const [categoryModal, setCategoryModal] = useState(false);
-  const [loginModal, setLoginModal] = useState(false);
-  
-  const openCategoryModal = () => {
+  const [categoryModal, setCategoryModal] = useState(false); // 덕
+  const [loginModal, setLoginModal] = useState(false);  // 덕
+  const [isLogined, setIsLogined] = useState(false);  // 덕
+  const openCategoryModal = () => { // 덕
     setCategoryModal(true);
   }
-  const closeCategoryModal = () => {
+  const closeCategoryModal = () => { // 덕
     setCategoryModal(false);
   }
-  const openLoginModal = () => {
+  const openLoginModal = () => { // 덕
     setLoginModal(true);
   }
-  const closeLoginModal = () => {
+  const closeLoginModal = () => { // 덕
     setLoginModal(false);
+  }
+  const userLogin = () => { // 덕
+    setIsLogined(true);
   }
 
     return (
     <div className="App">
-      <nav>
-          <ul className='navContainer'>
-              <li id='ham' onClick={openCategoryModal}>
-                  <AiOutlineMenu />
-              </li>
-              <li id='navLogo'>MeongHaMyo</li>
-              <li id='loginBlock' onClick={openLoginModal}>
-                  로그인
-              </li>
-          </ul>
-      </nav>
-
-      <CategoryModal open={categoryModal} close={closeCategoryModal} />
-      <LoginModal open={loginModal} close={closeLoginModal} />
+      <Nav 
+      categoryModal={categoryModal} 
+      openCategoryModal={openCategoryModal} 
+      closeCategoryModal={closeCategoryModal} 
+      loginModal={loginModal} 
+      openLoginModal={openLoginModal} 
+      closeLoginModal={closeLoginModal} 
+      isLogined={isLogined} 
+      userLogin={userLogin} />
+     
       {/* <ComunityList /> */}
       <ContentPage />
       {/* <Mypage /> */}
