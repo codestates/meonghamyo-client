@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/LoginModal.css'
 
-function LoginModal({ open, close }) {    
+function LoginModal({ open, close, isLogined }) {    
     return(
         <div>
             {open? (
@@ -19,7 +19,7 @@ function LoginModal({ open, close }) {
                                 <input></input>
                             </div>
                         </div>
-                        <button className='loginBtn'> 로그인 </button>
+                        <button className='loginBtn' onClick={isLogined}> 로그인 </button>
                     </div>
                 </div>
             </div>

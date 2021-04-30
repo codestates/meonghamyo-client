@@ -59,12 +59,16 @@ const fakecomment = {
             "contentId" : 1,
             "userId" : 1,
             "content" : "이것 댓글입니다", 
+            "createdAt": "2021/10/24",
+            "updatedAt": "updated time ver.2",
         },
         {
             "id": 2,
             "contentId" : 2,
             "userId" : 2,
             "content" : "박씨 댓글입니다", 
+            "createdAt": "2021/10/24",
+            "updatedAt": "updated time ver.2",
         },
     ]
         
