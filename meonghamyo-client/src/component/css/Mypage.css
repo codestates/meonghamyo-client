@@ -14,16 +14,14 @@
   width: 100%;
 }
 
-.userInfoText span{
+.userInfoText span {
   color: #404040;
   font-size: 14px;
 }
 
-.userInfoText div{
-    padding-left: 40px;
+.userInfoText div {
+  padding-left: 40px;
 }
-
-
 
 .userImage {
   padding: 40px;
@@ -39,7 +37,7 @@
 }
 
 .listBtnDiv {
-  display : flex;
+  display: flex;
   justify-content: flex-start;
 }
 
@@ -55,11 +53,11 @@
   width: 100%;
 }
 
-.h1PostComment{
+.h1PostComment {
   padding-left: 500px;
 }
 
-.iconPostComment{
+.iconPostComment {
   padding-left: 620px;
 }
 .userId {
@@ -69,61 +67,60 @@
   margin: 10px;
 }
 
-button{
-    background-color: black;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
-    margin: 2px;
+button {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 2px;
 }
 
-.mypageTitle{
-    text-align: left;
-    padding : 30px;
+.mypageTitle {
+  text-align: left;
+  padding: 30px;
 }
 
 .userInfoTable {
-    width : 100%;
-    border-spacing: 25px;
+  width: 100%;
+  border-spacing: 25px;
 }
 
-.userInfoTable tr{
+.userInfoTable tr {
   font-weight: 600;
   font-size: 24px;
 }
 
 .userInfoTable tr td {
-
-font-weight: 600;
-font-size: 17px;
+  font-weight: 600;
+  font-size: 17px;
 }
 
 .userInfoTable input {
-width: 150px;
-height: 20px;
+  width: 150px;
+  height: 20px;
 }
 
-.currentPwd{
-margin-left: 40px;
-width: 150px;
-height: 20px;
+.currentPwd {
+  margin-left: 40px;
+  width: 150px;
+  height: 20px;
 }
 
-.newPwd{
-margin-left: 55px;
-width: 150px;
-height: 20px;
+.newPwd {
+  margin-left: 55px;
+  width: 150px;
+  height: 20px;
 }
 
-.newPwdCheck{
-margin-left: 10px;
-width: 150px;
-height: 20px;
+.newPwdCheck {
+  margin-left: 10px;
+  width: 150px;
+  height: 20px;
 }
 
-.userNotFound{
-  padding-left : 100px;
-  color : #9a9a9a;
+.userNotFound {
+  padding-left: 100px;
+  color: #9a9a9a;
   font-weight: 600;
   font-size: 40px;
 }

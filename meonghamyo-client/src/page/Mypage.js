@@ -2,9 +2,23 @@ import React, { useState } from "react";
 import "../component/css/Mypage.css";
 import { AiOutlineComment } from "react-icons/ai";
 import { FaUserAltSlash } from "react-icons/fa";
-const Mypage = ({ fakeUser, fakeContent, fakeComment }) => {
+import { useHistory } from "react-router-dom";
+
+const Mypage = ({
+  fakeUser,
+  fakeContent,
+  fakeComment,
+  userLogout,
+  closeLoginModal,
+}) => {
   const [isModify, setisModify] = useState(false);
   const [listCheck, setlistCheck] = useState(true);
+  const history = useHistory();
+  const handleLogout = () => {
+    userLogout();
+    closeLoginModal();
+    history.push("/");
+  };
 
   const userPostList = () => {
     if (listCheck) {
@@ -142,16 +156,18 @@ const Mypage = ({ fakeUser, fakeContent, fakeComment }) => {
       );
     }
   };
-  return (
+  return fakeUser === null ? (
+    <div>
+      FakeUser가 Null 일 경우 에러 떠서 보기싫어가지고 일단 임시로 이걸 열어
+      놨습니다!
+    </div>
+  ) : (
     <div>
       <h1 className="mypageTitle">회원정보</h1>
       <hr></hr>
       <div className="userInfoArea">
         <div className="pictureArea">
-          <img
-            className="userImage"
-            src="https://pbs.twimg.com/profile_images/1021436156347539456/TGv26B8O_400x400.jpg"
-          />
+          <img className="userImage" src={fakeUser.image} />
           <button className="pictureBtn">사진 변경</button>
         </div>
         {userInfoTable()}
@@ -208,7 +224,9 @@ const Mypage = ({ fakeUser, fakeContent, fakeComment }) => {
         {userPostList()}
       </div>
 
-      <button className="logoutBtn">로그아웃</button>
+      <button className="logoutBtn" onClick={handleLogout}>
+        로그아웃
+      </button>
     </div>
   );
 };
