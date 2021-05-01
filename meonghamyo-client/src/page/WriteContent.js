@@ -7,12 +7,9 @@ import WriteArea from "../component/WriteArea";
 function WriteContent() {
    return (
       <div>
-         {/* <header className="App-header">
-            <Navigation></Navigation>
-         </header> */}
          <div className="writeContentHeader">게시글 작성</div>
          <hr className="borderHr" />
-         <WriteArea></WriteArea>
+         <WriteArea />
          <footer>
             <Footer></Footer>
          </footer>

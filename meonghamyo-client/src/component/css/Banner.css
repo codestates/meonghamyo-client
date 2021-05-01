@@ -1,11 +1,11 @@
 .Banner {
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
 }
 
 .banner {
-   margin-top: 4%;
-   border-radius: 20%;
-   width: 45%;
+   width: 40%;
+   /* 가로폭만 늘리고 싶다 */
 }
