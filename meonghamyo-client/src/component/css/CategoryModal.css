@@ -46,6 +46,13 @@
   text-align: left;
   padding: 15px;
 }
+.categoryList {
+  color: white;
+  text-decoration-line: none;
+}
+.categoryList:hover {
+  color: red;
+}
 .category:hover {
   color: red;
   cursor:pointer;

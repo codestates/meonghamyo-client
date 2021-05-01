@@ -2,15 +2,14 @@
 import "./component/css/Nav.css";
 import React, { useState } from "react";
 import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
+// import MainPage from "./page/MainPage"
 import ComunityList from "./page/ComunityList.js";
 import ContentPage from "./page/ContentPage.js";
-import { AiOutlineMenu } from "react-icons/ai";
-import CategoryModal from "./component/CategoryModal";
-import LoginModal from "./component/LoginModal";
 import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
 import fakedata from "./fakedata";
 import Nav from "./component/Nav";
+// import WriteContent from "./page/WriteContent"
 
 function App() {
   const [fakeUser, setfakeUser] = useState(null); // 홍
@@ -52,6 +51,10 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        {/* <Route path='/'>
+          <MainPage />
+        </Route> */}
+
         <Route path="/mypage">
           <Mypage
             fakeUser={fakeUser}
@@ -65,6 +68,12 @@ function App() {
         <Route path="/signup">
           <Signup fakeUser={fakeUser} handleAddUser={handleAddUser}></Signup>
         </Route>
+
+        <Route path='/comunity'>
+          <ComunityList />
+          {/* <ContentPage /> */}
+        </Route>
+
       </Switch>
       <Nav
         categoryModal={categoryModal}
@@ -78,8 +87,6 @@ function App() {
         handleAddUser={handleAddUser}
         fakeUser={fakeUser}
       />
-
-      {/* <ContentPage /> */}
     </div>
   );
 }

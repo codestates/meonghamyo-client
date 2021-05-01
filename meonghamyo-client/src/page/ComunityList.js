@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../component/css/ComunityList.css';
 import fakedata from '../fakedata';
 
@@ -8,6 +9,9 @@ function ComunityList() {
             <div>
                 <h1 className='comunityBox'>커뮤니티 게시판</h1>
                 <div id='main'>
+                    {/* <section className='comunityTable'>
+
+                    </section> */}
                     <table className='comunityTable'>
                         <tr>
                             <th className='contentIdx'>번호</th>
@@ -23,6 +27,7 @@ function ComunityList() {
                     </table>
                 </div>
                 <div className='newContent'>
+                    {/* <Link to='/newcontent'>새 글쓰기</Link> */}
                     <button className='newContentBtn'>새 글쓰기</button>
                 </div>
                 <div className='pagination'>- 1 2 3 4 5 -</div>
