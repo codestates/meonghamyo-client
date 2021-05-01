@@ -1,11 +1,13 @@
 import React from "react";
 import "./css/Banner.css";
-import banner from "../image/banner.jpg";
 
 function Banner() {
    return (
       <div className="Banner">
-         <img src={banner} className="banner"></img>
+         <img
+            className="banner"
+            src="http://www.thedogs.co.kr/images/main/slideBanner2.jpg"
+         ></img>
       </div>
    );
 }

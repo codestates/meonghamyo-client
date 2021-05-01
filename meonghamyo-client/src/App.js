@@ -48,9 +48,9 @@ function App() {
          {/* <ComunityList /> */}
          {/* <ContentPage /> */}
          {/* <Mypage /> */}
-         <MainPage></MainPage>
-         {/* <WriteContent></WriteContent> */}
          {/* <Signup /> */}
+         {/* <MainPage></MainPage> */}
+         <WriteContent></WriteContent>
       </div>
    );
 }

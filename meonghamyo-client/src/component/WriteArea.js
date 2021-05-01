@@ -1,22 +1,94 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./css/WriteContent.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import TagsInput from "./TagsInput";
+import "./css/TagsInput.css";
 import { FaPlusCircle } from "react-icons/fa";
-function WriteArea() {
+const WriteArea = () => {
+   // const [selectContent, setSelectContent] = useState({
+   //    value: "parcelOutContent",
+   // });
+   const [boardCode, setBoardCode] = useState({
+      boardCode: "parcelOutContent",
+   });
+   const [title, setTitle] = useState("");
+   const [content, setContent] = useState("");
+   const [img, setImg] = useState("");
+   const [tags, setTags] = useState([]);
+   const [errors, setErrors] = useState("");
+   const [viewContent, setViewContent] = useState([]);
+
+   //contentSelect(분양게시글, 커뮤니티게시글)
+   const handleChange = (event) => {
+      setBoardCode({ boardCode: event.target.value });
+   };
+   //title,content,img
+   const handleInputValue = (key) => (e) => {
+      setTitle({ [key]: e.target.value });
+   };
+
+   //태그
+   const changeTagsHandler = (name, value) => {
+      if (name === "tags") {
+         setTags(value);
+         // if (value.length > 0 && errors.tags) {
+         //    setErrors((prev) => {
+         //       const prevErrors = { ...prev };
+         //       delete prevErrors.tags;
+         //       return prevErrors;
+         //    });
+         // }
+      }
+   };
+   //데이터 보내기 (오류검사)
+   //데이터 추가로 날짜, 작성자 닉네임,
+   const submitHandler = () => {
+      if (
+         tags.length === 0 ||
+         title.length === 0 ||
+         title === "" ||
+         title.borderTitle === ""
+      ) {
+         //title이 빈값일 때(타이핑 하다가 내용 다 없애고 보낼때 에러메시지가 안나온다.) "" 이렇게 보내주고 있다.
+         setErrors("빈 작성란을 채워주세요");
+      } else {
+         if (errors) {
+            setErrors(() => {
+               const prevErrors = "";
+               return prevErrors;
+            });
+         }
+         console.log(tags, title, boardCode);
+         //Submit form
+      }
+   };
    return (
-      <form className="writeArea">
+      <form className="writeArea" onSubmit={(e) => e.preventDefault()}>
+         <div className="contentSelect">
+            <label className="contentSelectTitle">게시글 선택</label>
+            <select value={boardCode.value} onChange={handleChange}>
+               <option name="parcelOutContent" value="parcelOutContent">
+                  분양 게시글
+               </option>
+               <option name="communityContent" value="communityContent">
+                  커뮤니티 게시글
+               </option>
+            </select>
+         </div>
          <div>
             <label className="contentTitle">제목</label>
             <input
                className="borderTitle"
+               name="borderTitle"
                placeholder="제목을 작성해주세요"
+               onChange={handleInputValue("borderTitle")}
             ></input>
          </div>
          <div className="borderContentName">
             <label>내용</label>
          </div>
-         <div className="borderContent">
+         <div className="borderContent" value="borderContent">
             <CKEditor
                editor={ClassicEditor}
                data="내용을 입력해주세요"
@@ -24,22 +96,33 @@ function WriteArea() {
                onChange={(event, editor) => {
                   const data = editor.getData();
                   console.log(data);
+                  setContent({ ...content, content: data });
+                  console.log(content);
                }}
             />
          </div>
          <div className="addTagHeader">
-            <label>태그 추가</label>
-            <button>
-               <FaPlusCircle></FaPlusCircle>
-            </button>
+            <TagsInput
+               label="태그"
+               id="tags"
+               name="tags"
+               placeholder="Add tag"
+               onChange={changeTagsHandler}
+               defaultTags={tags}
+            />
          </div>
-
+         <div className="alertError">{errors}</div>
          <div className="boardButton">
             <input className="backButton" type="submit" value="목록으로" />
-            <input className="writeButton" type="submit" value="작성 완료" />
+            <input
+               className="writeButton"
+               type="submit"
+               value="작성 완료"
+               onClick={submitHandler}
+            />
          </div>
       </form>
    );
-}
+};
 
 export default WriteArea;
