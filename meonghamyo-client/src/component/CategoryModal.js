@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './css/CategoryModal.css'
 
-function CategoryModal({open, close}) {   
+function CategoryModal({open, close }) {   
     return(
         <div>
             {open? (
@@ -9,8 +10,14 @@ function CategoryModal({open, close}) {
                 <div className='modalContent'>
                     <span className='close' onClick={close}>&times;</span>
                     <ul className='modalData'>
-                        <li className='category'>분양</li>
-                        <li className='category'>커뮤니티</li>
+                        <li className='category'>
+                            <Link className='categoryList' to='/comunity' onClick={close}>분양</Link>
+                        </li>
+                        <li className='category'>
+                            <Link className='categoryList' to='/comunity' onClick={close}>
+                                커뮤니티
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
