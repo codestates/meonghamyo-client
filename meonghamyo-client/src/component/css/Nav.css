@@ -15,7 +15,7 @@
   flex-grow: 1;
   align-items: center;
   text-align: center;
-  color:white;
+  color: white;
   font-size: 30px;
   font-weight: bold;
 }
@@ -28,7 +28,7 @@
 }
 #ham:hover,
 #ham:focus {
-  color:red;
+  color: red;
 }
 #loginBlock {
   width: 50px;
@@ -39,10 +39,31 @@
   font-size: 15px;
   font-weight: bold;
 }
-#loginBlock:hover{
+#loginBlock:hover {
   color: red;
 }
+#signupBlock {
+  width: 60px;
+  height: 24px;
+  padding: 23px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+#signupBlock:hover {
+  color: red;
+}
+.profileImg {
+  width: 50px;
+  height: 24px;
+  padding: 23px;
+  cursor: pointer;
+  border-radius: 70%;
+}
+/* 홍 profileImg 수정 */
 body {
-    margin-top: 0;
-    padding-top: 70px;
+  margin-top: 0;
+  padding-top: 70px;
 }

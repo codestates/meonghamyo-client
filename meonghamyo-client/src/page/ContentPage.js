@@ -1,18 +1,19 @@
 import React from 'react';
-import '../component/css/ContentPage.css'
+import '../component/css/ContentPage.css';
+import fakedata from '../fakedata';
 
 function NewContent(){
     return(
         <div className='contentPage'>
             <div className='titleBar'>
-                <div className='writer'>작성자</div>
-                <h2 className='title'>게시물 제목</h2>
-                <div className='dateOfUpload'>업로드 날짜</div>
+                <div className='writer'>{fakedata.fakeuser.data[1].nickname}</div>
+                <h2 className='title'>{fakedata.fakecontent.data[1].title}</h2>
+                <div className='dateOfUpload'>{fakedata.fakecontent.data[1].createdAt}</div>
             </div>
             <div className='contentBox'>
-                <img className='contentImg' src='https://source.unsplash.com/Tn8DLxwuDMA/300x400'/>
+                <img className='contentImg' src={fakedata.fakecontent.data[1].img}/>
                 <div className='contentWord'>
-                    내용 야옹
+                    {fakedata.fakecontent.data[1].content}
                 </div>
             </div>
             <div className='contentBtnBox'>
@@ -29,19 +30,19 @@ function NewContent(){
                         <th className='commentCreateAt'>작성일</th>
                     </tr>
                     <tr>
-                        <td>엄준식</td>
-                        <td>귀여운 고양이다</td>
-                        <td >2021-04-28</td>
+                        <td className='tdNickName'>{fakedata.fakeuser.data[1].nickname}</td>
+                        <td className='tdComment'>{fakedata.fakecomment.data[1].content}</td>
+                        <td className='tdCreatedAt'>{fakedata.fakecomment.data[1].createdAt}</td>
                     </tr>
                     <tr>
-                        <td>나르</td>
-                        <td>슈슈파가</td>
-                        <td >2021-04-27</td>
+                        <td className='tdNickName'>나르</td>
+                        <td className='tdComment'>슈슈파가</td>
+                        <td className='tdCreatedAt'>2021-04-27</td>
                     </tr>
                     <tr>
-                        <td>포돌이</td>
-                        <td>잡았다 요놈</td>
-                        <td >2021-04-25</td>
+                        <td className='tdNickName'>포돌이</td>
+                        <td className='tdComment'>잡았다 요놈</td>
+                        <td className='tdCreatedAt'>2021-04-25</td>
                     </tr>
                 </table>
                 <div className='pagination'>- 1 2 3 4 5 -</div>

@@ -1,58 +1,116 @@
 // import './App.css';
 import "./component/css/Nav.css";
 import React, { useState } from "react";
-// import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
+// import MainPage from "./page/MainPage"
 import ComunityList from "./page/ComunityList.js";
 import ContentPage from "./page/ContentPage.js";
-import { AiOutlineMenu } from "react-icons/ai";
-import CategoryModal from "./component/CategoryModal";
-import LoginModal from "./component/LoginModal";
 import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
-import WriteContent from "./page/WriteContent";
-import MainPage from "./page/MainPage";
+import fakedata from "./fakedata";
+import Nav from "./component/Nav";
+// import WriteContent from "./page/WriteContent"
 
 function App() {
-   const [categoryModal, setCategoryModal] = useState(false);
-   const [loginModal, setLoginModal] = useState(false);
+  const [fakeUser, setfakeUser] = useState(null); // 홍
+  const [fakeContent, setfakeContent] = useState(null); // 홍
+  const [fakeComment, setfakeComment] = useState(null); // 홍
+  const [categoryModal, setCategoryModal] = useState(false); // 덕
+  const [loginModal, setLoginModal] = useState(false); // 덕
+  const [isLogined, setIsLogined] = useState(false); // 덕
+  const openCategoryModal = () => {
+    // 덕
+    setCategoryModal(true);
+  };
+  const closeCategoryModal = () => {
+    // 덕
+    setCategoryModal(false);
+  };
+  const openLoginModal = () => {
+    // 덕
+    setLoginModal(true);
+  };
+  const closeLoginModal = () => {
+    // 덕
+    setLoginModal(false);
+  };
+  const handleAddUser = (userInfo) => {
+    // 홍
+    setfakeUser(userInfo);
+  };
+  const userLogin = () => {
+    // 덕
+    setIsLogined(true);
+  };
 
-   const openCategoryModal = () => {
-      setCategoryModal(true);
-   };
-   const closeCategoryModal = () => {
-      setCategoryModal(false);
-   };
-   const openLoginModal = () => {
-      setLoginModal(true);
-   };
-   const closeLoginModal = () => {
-      setLoginModal(false);
-   };
+  const userLogout = () => {
+    //홍
+    setIsLogined(false);
+  };
 
-   return (
-      <div className="App">
-         <nav>
-            <ul className="navContainer">
-               <li id="ham" onClick={openCategoryModal}>
-                  <AiOutlineMenu />
-               </li>
-               <li id="navLogo">MeongHaMyo</li>
-               <li id="loginBlock" onClick={openLoginModal}>
-                  로그인
-               </li>
-            </ul>
-         </nav>
+  const modifyUserInfo = (modifyName, modifyNickname) => {
+    //홍
+    let result = fakedata.fakeuser.data.filter((el) => {
+      if (el.email === fakeUser.email) {
+        return el;
+      }
+    });
+    result[0].name = modifyName;
+    result[0].nickname = modifyNickname;
+  };
 
-         <CategoryModal open={categoryModal} close={closeCategoryModal} />
-         <LoginModal open={loginModal} close={closeLoginModal} />
-         {/* <ComunityList /> */}
-         {/* <ContentPage /> */}
-         {/* <Mypage /> */}
-         {/* <Signup /> */}
-         {/* <MainPage></MainPage> */}
-         <WriteContent></WriteContent>
-      </div>
-   );
+  const modifyUserPwd = (modifyPwd) => {
+    //홍
+    let result = fakedata.fakeuser.data.filter((el) => {
+      if (el.email === fakeUser.email) {
+        return el;
+      }
+    });
+    result[0].password = modifyPwd;
+  };
+
+  return (
+    <div className="App">
+      <Switch>
+        {/* <Route path='/'>
+          <MainPage />
+        </Route> */}
+        <Route path="/mypage">
+          <Mypage
+            fakeUser={fakeUser}
+            fakeContent={fakeContent}
+            fakeComment={fakeComment}
+            userLogout={userLogout}
+            closeLoginModal={closeLoginModal}
+            modifyUserInfo={modifyUserInfo}
+            modifyUserPwd={modifyUserPwd}
+          />
+        </Route>
+
+        <Route path="/signup">
+          <Signup fakeUser={fakeUser} handleAddUser={handleAddUser}></Signup>
+        </Route>
+
+        <Route path="/comunity">
+          <ComunityList />
+          {/* <ContentPage /> */}
+        </Route>
+      </Switch>
+      <Nav
+        categoryModal={categoryModal}
+        openCategoryModal={openCategoryModal}
+        closeCategoryModal={closeCategoryModal}
+        loginModal={loginModal}
+        openLoginModal={openLoginModal}
+        closeLoginModal={closeLoginModal}
+        isLogined={isLogined}
+        userLogin={userLogin}
+        handleAddUser={handleAddUser}
+        fakeUser={fakeUser}
+      />
+    </div>
+  );
+
 }
 
 export default App;
