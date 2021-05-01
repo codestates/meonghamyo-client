@@ -48,13 +48,33 @@ function App() {
     setIsLogined(false);
   };
 
+  const modifyUserInfo = (modifyName, modifyNickname) => {
+    //홍
+    let result = fakedata.fakeuser.data.filter((el) => {
+      if (el.email === fakeUser.email) {
+        return el;
+      }
+    });
+    result[0].name = modifyName;
+    result[0].nickname = modifyNickname;
+  };
+
+  const modifyUserPwd = (modifyPwd) => {
+    //홍
+    let result = fakedata.fakeuser.data.filter((el) => {
+      if (el.email === fakeUser.email) {
+        return el;
+      }
+    });
+    result[0].password = modifyPwd;
+  };
+
   return (
     <div className="App">
       <Switch>
         {/* <Route path='/'>
           <MainPage />
         </Route> */}
-
         <Route path="/mypage">
           <Mypage
             fakeUser={fakeUser}
@@ -62,6 +82,8 @@ function App() {
             fakeComment={fakeComment}
             userLogout={userLogout}
             closeLoginModal={closeLoginModal}
+            modifyUserInfo={modifyUserInfo}
+            modifyUserPwd={modifyUserPwd}
           />
         </Route>
 
@@ -69,11 +91,10 @@ function App() {
           <Signup fakeUser={fakeUser} handleAddUser={handleAddUser}></Signup>
         </Route>
 
-        <Route path='/comunity'>
+        <Route path="/comunity">
           <ComunityList />
           {/* <ContentPage /> */}
         </Route>
-
       </Switch>
       <Nav
         categoryModal={categoryModal}
