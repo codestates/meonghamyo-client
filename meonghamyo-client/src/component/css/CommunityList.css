@@ -7,16 +7,16 @@
     margin-top: 40px;
     margin-bottom: 20px;
   }
-  .comunityTable {
+  .communityTable {
     width: 70%;
     text-align: center;
     border: solid 2px;
     border-collapse: collapse;
   }
-  .comunityTable td {
+  .communityTable td {
     border: solid 2px;
   }
-  .comunityTable th {
+  .communityTable th {
     border: solid 2px;
   }
   .contentIdx {
@@ -25,7 +25,7 @@
   .contentTitle {
     width: 70%;
   }
-  .comunityBox {
+  .communityBox {
     margin-top: 10%;
     padding-left: 15%;
   }

@@ -1,6 +1,8 @@
 import React from 'react';
 import '../component/css/ContentPage.css';
 import fakedata from '../fakedata';
+import axios from 'axios';
+
 
 function NewContent(){
     return(

@@ -2,8 +2,8 @@
 import "./component/css/Nav.css";
 import React, { useState } from "react";
 import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
-// import MainPage from "./page/MainPage"
-import ComunityList from "./page/ComunityList.js";
+import MainPage from "./page/MainPage"
+import CommunityList from "./page/CommunityList.js";
 import ContentPage from "./page/ContentPage.js";
 import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
@@ -72,9 +72,6 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        {/* <Route path='/'>
-          <MainPage />
-        </Route> */}
         <Route path="/mypage">
           <Mypage
             fakeUser={fakeUser}
@@ -91,9 +88,16 @@ function App() {
           <Signup fakeUser={fakeUser} handleAddUser={handleAddUser}></Signup>
         </Route>
 
-        <Route path="/comunity">
-          <ComunityList />
-          {/* <ContentPage /> */}
+        <Route exact path="/community">  
+          <CommunityList />
+        </Route>
+
+        <Route path="/community/content/">
+            <ContentPage />
+        </Route>
+
+        <Route path='/'>
+          <MainPage />
         </Route>
       </Switch>
       <Nav
