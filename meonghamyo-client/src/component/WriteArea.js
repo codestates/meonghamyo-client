@@ -170,7 +170,7 @@ const WriteArea = () => {
          </div>
          <div className="alertError">{errors}</div>
          <div className="boardButton">
-            <Link to="/comunity">
+            <Link to="/community">
                <input className="backButton" type="submit" value="목록으로" />
             </Link>
             {/* <Link to="/"> */}
