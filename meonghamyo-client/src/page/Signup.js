@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../component/css/Signup.css";
 import fakedata from "../fakedata";
-const Signup = ({ handleAddUser, fakeUser }) => {
+import axios from "axios";
+axios.defaults.withCredentials = true;
+const Signup = () => {
   const [newUser, setnewUser] = useState({});
 
   const handleSubmit = () => {
@@ -10,8 +12,11 @@ const Signup = ({ handleAddUser, fakeUser }) => {
     delete newUserInfo.year;
     delete newUserInfo.month;
     delete newUserInfo.day;
-    fakedata.fakeuser.data.push(newUserInfo);
-    console.log(fakedata);
+    
+    axios.post('https://localhost:4000/user/signup',{
+      ...newUserInfo
+    })
+  
   };
   const handleInputValue = (key) => (e) => {
     let newUserCopy = { ...newUser };

@@ -11,10 +11,10 @@ function CategoryModal({open, close }) {
                     <span className='close' onClick={close}>&times;</span>
                     <ul className='modalData'>
                         <li className='category'>
-                            <Link className='categoryList' to='/comunity' onClick={close}>분양</Link>
+                            <Link className='categoryList' to='/community' onClick={close}>분양</Link>
                         </li>
                         <li className='category'>
-                            <Link className='categoryList' to='/comunity' onClick={close}>
+                            <Link className='categoryList' to='/community' onClick={close}>
                                 커뮤니티
                             </Link>
                         </li>
