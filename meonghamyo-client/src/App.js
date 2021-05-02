@@ -75,7 +75,7 @@ function App() {
             <ContentPage />
         </Route>
 
-        <Route path='/'>
+        <Route exact path='/'>
           <MainPage />
         </Route>
      

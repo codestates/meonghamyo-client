@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import UserInfoTable from "../component/UserInfoTable";
 import UserPostList from "../component/UserPostList";
 import axios from "axios";
+import Footer from "../component/Footer";
 
 const Mypage = ({
   currentUser,
@@ -75,6 +76,7 @@ const Mypage = ({
       <button className="logoutBtn" onClick={handleLogout}>
         로그아웃
       </button>
+      <Footer />
     </div>
   );
 };

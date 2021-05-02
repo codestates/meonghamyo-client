@@ -2,6 +2,7 @@ import React from 'react';
 import '../component/css/ContentPage.css';
 import fakedata from '../fakedata';
 import axios from 'axios';
+import Footer from '../component/Footer';
 
 
 function NewContent(){
@@ -49,6 +50,7 @@ function NewContent(){
                 </table>
                 <div className='pagination'>- 1 2 3 4 5 -</div>
             </div>
+            <Footer />
         </div>
     )
 }
