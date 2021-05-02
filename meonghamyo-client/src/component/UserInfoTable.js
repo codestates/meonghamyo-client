@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { FaUserAltSlash } from "react-icons/fa";
-
-const UserInfoTable = ({ fakeUser, modifyUserInfo, modifyUserPwd }) => {
+axios.defaults.withCredentials = true;
+const UserInfoTable = ({ currentUser}) => {
   const [modifiedUserInfo, setmodifiedUserInfo] = useState({});
   const [isModify, setisModify] = useState(false);
   const inputValue = (key) => (e) => {
@@ -12,32 +13,43 @@ const UserInfoTable = ({ fakeUser, modifyUserInfo, modifyUserPwd }) => {
 
   const handleUserInfo = () => {
     if (modifiedUserInfo.name && modifiedUserInfo.nickname) {
-      let modifyName = modifiedUserInfo.name;
-      let modifyNickname = modifiedUserInfo.nickname;
-      modifyUserInfo(modifyName, modifyNickname);
-      setisModify(false);
+      axios.put('https://localhost:4000/mypage/userupdate',{
+        name : modifiedUserInfo.name,
+        birth : currentUser.birth,
+        password : modifiedUserInfo.newpassword,
+        nickname : modifiedUserInfo.nickname,
+        img : currentUser.img
+      })
+      .then(res => setisModify(false)) // 재 렌더 해줘야 할듯 !
+
     } else {
       console.log("입력이 충분하지 않습니다.");
     }
   };
 
   const handlePwd = () => {
-    if (fakeUser.password === modifiedUserInfo.password) {
+    if (currentUser.password === modifiedUserInfo.password) {
       if (modifiedUserInfo.newpassword === modifiedUserInfo.newpasswordCheck) {
-        let modifyPwd = modifiedUserInfo.newpassword;
-        modifyUserPwd(modifyPwd);
+        axios.put('https://localhost:4000/mypage/userupdate',{
+          name : currentUser.name,
+          birth : currentUser.birth,
+          password : modifiedUserInfo.newpassword,
+          nickname : currentUser.nickname,
+          img : currentUser.img
+        })
       } else {
         console.log("변경할 비밀번호 불일치");
       }
     } else {
       console.log("현재 비밀번호 불일치");
     }
+
+
   };
   return (
     <>
-      {console.log(fakeUser)}
       {isModify === true ? (
-        fakeUser === null ? (
+        currentUser === null ? (
           <>
             <FaUserAltSlash
               style={{ color: "#9a9a9a", marginLeft: "200" }}
@@ -50,7 +62,7 @@ const UserInfoTable = ({ fakeUser, modifyUserInfo, modifyUserPwd }) => {
             <table className="userInfoTable">
               <tr>
                 아이디(이메일)
-                <td>{fakeUser.email}</td>
+                <td>{currentUser.email}</td>
               </tr>
               <tr>
                 이름
@@ -74,12 +86,12 @@ const UserInfoTable = ({ fakeUser, modifyUserInfo, modifyUserPwd }) => {
               </tr>
               <tr>
                 생년월일
-                <td>{fakeUser.birth}</td>
+                <td>{currentUser.birth}</td>
               </tr>
             </table>
           </>
         )
-      ) : fakeUser === null ? (
+      ) : currentUser === null ? (
         <>
           <FaUserAltSlash
             style={{ color: "#9a9a9a", marginLeft: "200" }}
@@ -91,15 +103,15 @@ const UserInfoTable = ({ fakeUser, modifyUserInfo, modifyUserPwd }) => {
         <table className="userInfoTable">
           <tr>
             아이디(이메일)
-            <td>{fakeUser.email} </td>
+            <td>{currentUser.email} </td>
           </tr>
           <tr>
             이름
-            <td>{fakeUser.name} </td>
+            <td>{currentUser.name} </td>
           </tr>
           <tr>
             닉네임
-            <td>{fakeUser.nickname} </td>
+            <td>{currentUser.nickname} </td>
           </tr>
           <tr>
             비밀번호 변경
@@ -135,7 +147,7 @@ const UserInfoTable = ({ fakeUser, modifyUserInfo, modifyUserPwd }) => {
           </tr>
           <tr>
             생년월일
-            <td>{fakeUser.birth}</td>
+            <td>{currentUser.birth}</td>
           </tr>
         </table>
       )}

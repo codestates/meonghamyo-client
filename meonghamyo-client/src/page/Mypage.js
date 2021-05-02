@@ -3,27 +3,32 @@ import "../component/css/Mypage.css";
 import { useHistory } from "react-router-dom";
 import UserInfoTable from "../component/UserInfoTable";
 import UserPostList from "../component/UserPostList";
+import axios from "axios";
 
 const Mypage = ({
-  fakeUser,
+  currentUser,
   fakeContent,
   fakeComment,
   userLogout,
   closeLoginModal,
-  modifyUserInfo,
-  modifyUserPwd,
+
 }) => {
   const [listCheck, setlistCheck] = useState(true);
   const history = useHistory();
   const handleLogout = () => {
-    userLogout();
-    closeLoginModal();
-    history.push("/");
+
+
+    axios.post('https://localhost:4000/mypage/logout')
+    .then(res => {
+      userLogout(); 
+      closeLoginModal();
+      history.push("/");
+    })
   };
 
-  return fakeUser === null ? (
+  return currentUser === null ? (
     <div>
-      FakeUser가 Null 일 경우 에러 떠서 보기싫어가지고 일단 임시로 이걸 열어
+      currentUser가 Null 일 경우 에러 떠서 보기싫어가지고 일단 임시로 이걸 열어
       놨습니다!
     </div>
   ) : (
@@ -32,13 +37,11 @@ const Mypage = ({
       <hr></hr>
       <div className="userInfoArea">
         <div className="pictureArea">
-          <img className="userImage" src={fakeUser.image} />
+          <img className="userImage" src={currentUser.img} />
           <button className="pictureBtn">사진 변경</button>
         </div>
         <UserInfoTable
-          fakeUser={fakeUser}
-          modifyUserInfo={modifyUserInfo}
-          modifyUserPwd={modifyUserPwd}
+          currentUser={currentUser}
         />
       </div>
       <div className="postList">
@@ -65,7 +68,7 @@ const Mypage = ({
           listCheck={listCheck}
           fakeContent={fakeContent}
           fakeComment={fakeComment}
-          fakeUser={fakeUser}
+          currentUser={currentUser}
         />
       </div>
 

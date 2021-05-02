@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import fakedata from "../fakedata";
 import "./css/LoginModal.css";
-function LoginModal({ open, close, userLogin, handleAddUser }) {
+function LoginModal({ open, close, userLogin, handleCurrentUser }) {
   const [loginInputValue, setloginInputValue] = useState({}); // 홍
 
   const inputValue = (key) => (e) => {
@@ -11,22 +12,17 @@ function LoginModal({ open, close, userLogin, handleAddUser }) {
     setloginInputValue(newLoginInputValue);
   };
   const handleLogin = () => {
-    // 홍
-    let result = fakedata.fakeuser.data.filter((el) => {
-      if (
-        el.email === loginInputValue.email &&
-        el.password === loginInputValue.password
-      ) {
-        return el;
-      }
-    });
-    if (result.length !== 0) {
-      userLogin();
-      console.log("로그인 성공");
-      handleAddUser(...result);
-    } else {
-      console.log("로그인 실패");
-    }
+    axios
+      .post("https://localhost:4000/user/login", {
+        ...loginInputValue,
+      })
+      .then((res) => {
+        userLogin()
+        return axios.get("https://localhost:4000/mypage/userinfo")
+      })
+      .catch(err=>err)
+      .then(res => handleCurrentUser(res.data.data[0].userInfo))
+      .catch(err=>err)
   };
   return (
     <div>
