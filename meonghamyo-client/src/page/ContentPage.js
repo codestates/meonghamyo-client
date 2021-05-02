@@ -1,58 +1,85 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../component/css/ContentPage.css';
-import fakedata from '../fakedata';
 import axios from 'axios';
 import Footer from '../component/Footer';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
-function NewContent(){
+
+function ContentPage(){
+    let params = useParams();
+    let id = params.id;
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await axios.get(`https://localhost:4000/content/${id}`)
+            .then((res) => {
+                // console.log(res)
+                setData(res.data.data[0]);
+                setLoading(false);
+            });
+            
+        };
+        fetchData();
+    }, [])
+
+    function del() {
+        axios.delete(`https://localhost:4000/content/${id}/delete`);
+    };
+
+    if(loading){
+        return <h2>Loading...</h2>
+    }
     return(
         <div className='contentPage'>
             <div className='titleBar'>
-                <div className='writer'>{fakedata.fakeuser.data[1].nickname}</div>
-                <h2 className='title'>{fakedata.fakecontent.data[1].title}</h2>
-                <div className='dateOfUpload'>{fakedata.fakecontent.data[1].createdAt}</div>
+                {/* {console.log(data)} */}
+                <div className='writer'>{'유저테이블에서 닉네임 가져오기'}</div>
+                <h2 className='title'>{data.contentInfo.title}</h2>
+                <div className='dateOfUpload'>{data.contentInfo.updatedAt}</div>
             </div>
             <div className='contentBox'>
-                <img className='contentImg' src={fakedata.fakecontent.data[1].img}/>
+                <img className='contentImg' src={data.contentInfo.img}/>
                 <div className='contentWord'>
-                    {fakedata.fakecontent.data[1].content}
+                    {data.contentInfo.contentBody}
                 </div>
             </div>
             <div className='contentBtnBox'>
-                <button className='contentBtn'>삭제</button>
-                <button className='contentBtn'>수정</button>
-                <button className='contentBtn'>글 목록 이동</button>
+                <button className='contentBtn'>
+                    {/*로그인이 되어있지 않은 경우, 경고나 모달 출력*/}
+                    <Link onClick={del} to='/community'>삭제</Link>
+                </button>
+                <button className='contentBtn'>
+                    <Link to={`/writepage`}>수정</Link>
+                    {/* <Link to={`/writepage/${data.id}`}>수정</Link>
+                    로그인이 되어있지 않은 경우, 경고나 모달 출력 */}
+                </button>
+                <button className='contentBtn'>
+                    <Link to='/community'>글 목록 이동</Link>
+                </button>
             </div>
-            <div className='commentBox'>
-                - 댓글 리스트 -
-                <table className='commentTable'>
-                    <tr>
-                        <th className='commentNickName'>닉네임</th>
-                        <th className='commentWord'>댓글</th>
-                        <th className='commentCreateAt'>작성일</th>
-                    </tr>
-                    <tr>
-                        <td className='tdNickName'>{fakedata.fakeuser.data[1].nickname}</td>
-                        <td className='tdComment'>{fakedata.fakecomment.data[1].content}</td>
-                        <td className='tdCreatedAt'>{fakedata.fakecomment.data[1].createdAt}</td>
-                    </tr>
-                    <tr>
-                        <td className='tdNickName'>나르</td>
-                        <td className='tdComment'>슈슈파가</td>
-                        <td className='tdCreatedAt'>2021-04-27</td>
-                    </tr>
-                    <tr>
-                        <td className='tdNickName'>포돌이</td>
-                        <td className='tdComment'>잡았다 요놈</td>
-                        <td className='tdCreatedAt'>2021-04-25</td>
-                    </tr>
-                </table>
-                <div className='pagination'>- 1 2 3 4 5 -</div>
+            
+            - 댓글 리스트 -
+            {data.commentInfo.map((comment) => (
+                <div className='commentBox'>
+                    <div className='commentListNickname'>{comment.userId}유저join필요</div>
+                    <div className='commentListBody'>{comment.commentBody}</div>
+                    <div className='commentListCreatedAt'>{comment.createdAt}</div>
+                </div>
+            ))}
+            <button id='newCommentBtn'>댓글작성</button>
+            <div id='newCommentBox'>
+                <textarea id='commentInput'></textarea>
+                <button id='submitCommentBtn'>댓글 달기</button>
+                {/* 로그인 정보에 따라 댓글작성 실행여부 결정. 혹은 아예 숨김처리 */}
             </div>
+            
             <Footer />
         </div>
     )
 }
 
-export default NewContent;
+export default ContentPage;

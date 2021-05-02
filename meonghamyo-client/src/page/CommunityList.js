@@ -8,15 +8,14 @@ import Footer from '../component/Footer';
 axios.defaults.withCredentials = true;
 
 function CommunityList() {
-    let counter = 0;
+    // let counter = 0;
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
 
     useEffect(() => {
         const fetchPosts = async () => {
-           setLoading(true);
            await axios.get("https://localhost:4000/content/communitypage")
            .then((result) => {
                setPosts(result.data.data[0].contentInfo);
@@ -45,7 +44,7 @@ function CommunityList() {
                         <div key={post.id} className='listItem'>
                             <div className='listWriter'>{post.userId}</div>
                             <div className='listTitle'>
-                                <Link to={`/community/content/${post.id}`}>{post.title}</Link>
+                                <Link to={`/content/${post.id}`}>{post.title}</Link>
                             </div>
                             <div className='listCreatedAt'>{post.createdAt}</div>
                         </div>
@@ -53,8 +52,9 @@ function CommunityList() {
                 </section>
             </div>
             <div className='newContent'>
-                {/* <Link to='/준혁님 주소 여기다 적기'>새 글쓰기</Link> */}
-                <button className='newContentBtn'>새 글쓰기</button>
+                <button className='newContentBtn'>
+                    <Link to='/writepage'>새 글쓰기</Link>
+                </button>
             </div>
             <Pagination
             postsPerPage={postsPerPage}

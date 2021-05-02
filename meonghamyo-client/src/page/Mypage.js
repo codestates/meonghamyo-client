@@ -14,10 +14,12 @@ const Mypage = ({
   closeLoginModal,
 
 }) => {
+  
   const [listCheck, setlistCheck] = useState(true);
   const history = useHistory();
-  const handleLogout = () => {
 
+  const handleLogout = () => {
+    
 
     axios.post('https://localhost:4000/mypage/logout')
     .then(res => {

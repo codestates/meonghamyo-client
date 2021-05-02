@@ -71,7 +71,7 @@ function App() {
           <CommunityList />
         </Route>
 
-        <Route path="/community/content/">
+        <Route path="/content/:id">
             <ContentPage />
         </Route>
 
@@ -79,9 +79,9 @@ function App() {
           <MainPage />
         </Route>
      
-     <Route path="/writepage">
-               <WriteContent />
-            </Route>
+        <Route path="/writepage">
+          <WriteContent />
+        </Route>
       </Switch>
       <Nav
         categoryModal={categoryModal}
