@@ -4,6 +4,7 @@ import fakedata from '../fakedata';
 import Pagination from '../component/Pagination';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Footer from '../component/Footer';
 axios.defaults.withCredentials = true;
 
 function CommunityList() {
@@ -60,6 +61,7 @@ function CommunityList() {
             totalPosts={posts.length}
             paginate={paginate}
             />  
+            <Footer />
         </div>
     )
 }

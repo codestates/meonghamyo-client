@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../component/css/Signup.css";
 import fakedata from "../fakedata";
 import axios from "axios";
+import Footer from "../component/Footer";
 axios.defaults.withCredentials = true;
 const Signup = () => {
   const [newUser, setnewUser] = useState({});
@@ -122,6 +123,7 @@ const Signup = () => {
       <button className="signupBtn" onClick={handleSubmit}>
         가입하기
       </button>
+      <Footer />
     </div>
   );
 };
