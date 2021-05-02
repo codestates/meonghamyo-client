@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // import "../App.css";
 import "../component/css/WriteContent.css";
 import Footer from "../component/Footer";
@@ -10,9 +10,7 @@ function WriteContent() {
          <div className="writeContentHeader">게시글 작성</div>
          <hr className="borderHr" />
          <WriteArea />
-         <footer>
-            <Footer></Footer>
-         </footer>
+         <Footer></Footer>
       </div>
    );
 }

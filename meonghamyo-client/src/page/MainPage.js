@@ -9,9 +9,7 @@ function MainPage() {
       <div>
          <Banner></Banner>
          <PreSaleList></PreSaleList>
-         <footer>
-            <Footer></Footer>
-         </footer>
+         <Footer></Footer>
       </div>
    );
 }
