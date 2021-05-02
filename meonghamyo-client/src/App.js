@@ -9,8 +9,8 @@ import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
 import fakedata from "./fakedata";
 import Nav from "./component/Nav";
+import WriteContent from "./page/WriteContent";
 import axios from "axios";
-// import WriteContent from "./page/WriteContent"
 
 function App() {
   const [currentUser, setcurrentUser] = useState(null); // 홍
@@ -45,10 +45,10 @@ function App() {
     setIsLogined(true);
   };
 
-  const userLogout = () => {
-    //홍
-    setIsLogined(false);
-  };
+   const userLogout = () => {
+      //홍
+      setIsLogined(false);
+   };
 
   return (
     <div className="App">
@@ -78,6 +78,10 @@ function App() {
         <Route path='/'>
           <MainPage />
         </Route>
+     
+     <Route path="/writepage">
+               <WriteContent />
+            </Route>
       </Switch>
       <Nav
         categoryModal={categoryModal}
@@ -93,7 +97,6 @@ function App() {
       />
     </div>
   );
-
-}
+ }
 
 export default App;
