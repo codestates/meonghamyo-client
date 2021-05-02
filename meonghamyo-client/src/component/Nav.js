@@ -12,8 +12,8 @@ function Nav({
   closeLoginModal,
   isLogined,
   userLogin,
-  handleAddUser,
-  fakeUser,
+  handleCurrentUser,
+  currentUser,
 }) {
   return (
     <div>
@@ -23,10 +23,10 @@ function Nav({
             <AiOutlineMenu />
           </li>
           <li id="navLogo">MeongHaMyo</li>
-          {isLogined ? (
+          {isLogined && currentUser  ?  (
             <>
               <Link to="/mypage">
-                <img className="profileImg" src={fakeUser.image} />
+                <img className="profileImg" src={currentUser.img} />
               </Link>
             </>
             // 홍  이미지 바꾼 부분
@@ -48,8 +48,8 @@ function Nav({
           open={loginModal}
           close={closeLoginModal}
           userLogin={userLogin}
-          handleAddUser={handleAddUser}
-          fakeUser={fakeUser}
+          handleCurrentUser={handleCurrentUser}
+          currentUser={currentUser}
         />
       )}
     </div>

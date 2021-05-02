@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineComment } from "react-icons/ai";
 
-const UserPostList = ({ listCheck, fakeContent, fakeComment, fakeUser }) => {
+const UserPostList = ({ listCheck, fakeContent, fakeComment, currentUser }) => {
   return (
     <>
       {listCheck === true ? (
@@ -22,7 +22,7 @@ const UserPostList = ({ listCheck, fakeContent, fakeComment, fakeUser }) => {
         ) : (
           <>
             <div className="userPostList">
-              <span className="userId">{fakeUser.nickname}</span>
+              <span className="userId">{currentUser.nickname}</span>
               <div className="userContent">{fakeContent.title}</div>
             </div>
             <hr></hr>
@@ -45,7 +45,7 @@ const UserPostList = ({ listCheck, fakeContent, fakeComment, fakeUser }) => {
       ) : (
         <>
           <div className="userCommentList">
-            <span className="userId">{fakeUser.nickname}</span>
+            <span className="userId">{currentUser.nickname}</span>
             <div className="userContent">{fakeComment.content}</div>
           </div>
           <hr></hr>

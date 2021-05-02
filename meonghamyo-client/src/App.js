@@ -9,10 +9,11 @@ import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
 import fakedata from "./fakedata";
 import Nav from "./component/Nav";
+import axios from "axios";
 // import WriteContent from "./page/WriteContent"
 
 function App() {
-  const [fakeUser, setfakeUser] = useState(null); // 홍
+  const [currentUser, setcurrentUser] = useState(null); // 홍
   const [fakeContent, setfakeContent] = useState(null); // 홍
   const [fakeComment, setfakeComment] = useState(null); // 홍
   const [categoryModal, setCategoryModal] = useState(false); // 덕
@@ -34,10 +35,11 @@ function App() {
     // 덕
     setLoginModal(false);
   };
-  const handleAddUser = (userInfo) => {
+  const handleCurrentUser = (userInfo) => {
     // 홍
-    setfakeUser(userInfo);
+    setcurrentUser(userInfo);
   };
+  
   const userLogin = () => {
     // 덕
     setIsLogined(true);
@@ -48,44 +50,21 @@ function App() {
     setIsLogined(false);
   };
 
-  const modifyUserInfo = (modifyName, modifyNickname) => {
-    //홍
-    let result = fakedata.fakeuser.data.filter((el) => {
-      if (el.email === fakeUser.email) {
-        return el;
-      }
-    });
-    result[0].name = modifyName;
-    result[0].nickname = modifyNickname;
-  };
-
-  const modifyUserPwd = (modifyPwd) => {
-    //홍
-    let result = fakedata.fakeuser.data.filter((el) => {
-      if (el.email === fakeUser.email) {
-        return el;
-      }
-    });
-    result[0].password = modifyPwd;
-  };
-
   return (
     <div className="App">
       <Switch>
         <Route path="/mypage">
           <Mypage
-            fakeUser={fakeUser}
+            currentUser={currentUser}
             fakeContent={fakeContent}
             fakeComment={fakeComment}
             userLogout={userLogout}
             closeLoginModal={closeLoginModal}
-            modifyUserInfo={modifyUserInfo}
-            modifyUserPwd={modifyUserPwd}
           />
         </Route>
 
         <Route path="/signup">
-          <Signup fakeUser={fakeUser} handleAddUser={handleAddUser}></Signup>
+          <Signup currentUser={currentUser} handleCurrentUser={handleCurrentUser}></Signup>
         </Route>
 
         <Route exact path="/community">  
@@ -109,8 +88,8 @@ function App() {
         closeLoginModal={closeLoginModal}
         isLogined={isLogined}
         userLogin={userLogin}
-        handleAddUser={handleAddUser}
-        fakeUser={fakeUser}
+        handleCurrentUser={handleCurrentUser}
+        currentUser={currentUser}
       />
     </div>
   );
