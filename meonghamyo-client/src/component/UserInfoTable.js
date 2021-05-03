@@ -176,7 +176,7 @@ const UserInfoTable = ({ currentUser}) => {
             >
               회원정보 수정
             </button>
-            <button className="userLeaveBtn" onClick={() => {}}>
+            <button className="userLeaveBtn" >
               회원 탈퇴
             </button>
           </>

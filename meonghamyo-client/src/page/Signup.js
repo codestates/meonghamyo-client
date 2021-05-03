@@ -13,11 +13,10 @@ const Signup = () => {
     delete newUserInfo.year;
     delete newUserInfo.month;
     delete newUserInfo.day;
-    
-    axios.post('https://localhost:4000/user/signup',{
-      ...newUserInfo
-    })
-  
+
+    axios.post("https://localhost:4000/user/signup", {
+      ...newUserInfo,
+    });
   };
   const handleInputValue = (key) => (e) => {
     let newUserCopy = { ...newUser };

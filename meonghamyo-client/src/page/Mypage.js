@@ -15,17 +15,30 @@ const Mypage = ({
 
 }) => {
   const [listCheck, setlistCheck] = useState(true);
+  const [currentPic, setcurrentPic] = useState("")
   const history = useHistory();
   const handleLogout = () => {
-
-
-    axios.post('https://localhost:4000/mypage/logout')
-    .then(res => {
-      userLogout(); 
+    axios.post("https://localhost:4000/mypage/logout").then((res) => {
+      userLogout();
       closeLoginModal();
       history.push("/");
-    })
+    });
   };
+
+  const selectImage = e => {
+    if(e.target.files !== null){
+      const fd = new FormData();
+
+      fd.append('image', e.target.files[0]);
+
+      axios.post("https://localhost:4000/user/profileupload",fd)
+      .then(res => {
+        console.log(res)
+        setcurrentPic(res.data)
+      })
+    }
+    console.log("이건",e.target.files[0])
+  }
 
   return currentUser === null ? (
     <div>
@@ -38,11 +51,16 @@ const Mypage = ({
       <hr></hr>
       <div className="userInfoArea">
         <div className="pictureArea">
-          <img className="userImage" src={currentUser.img} />
-          <button className="pictureBtn">사진 변경</button>
+          {console.log(currentPic)}
+          {currentPic.length === 0 ? <img className="userImage" src={currentUser.img} />:
+          <img className="userImage" src={`https://localhost:4000/${currentPic}`} />}
+          {/* <img className="userImage" src={currentUser.img} /> */}
+          {/* <button className="pictureBtn" onClick={}>사진 변경</button> */}
+          <input type="file" accept="image/jpeg, image/jpg, image/png" onChange={selectImage}></input>
         </div>
         <UserInfoTable
           currentUser={currentUser}
+          closeLoginModal={closeLoginModal}
         />
       </div>
       <div className="postList">
