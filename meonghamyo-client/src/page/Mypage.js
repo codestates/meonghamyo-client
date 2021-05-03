@@ -59,6 +59,7 @@ commentData();
       const fd = new FormData();
 
       fd.append('image', e.target.files[0]);
+      console.log(fd);
 
       axios.post("https://localhost:4000/user/profileupload",fd)
       .then(res => {
@@ -66,7 +67,7 @@ commentData();
         setcurrentPic(res.data)
       })
     }
-    console.log("이건",e.target.files[0])
+    console.log("이건",e.target.files)
   }
 
 
