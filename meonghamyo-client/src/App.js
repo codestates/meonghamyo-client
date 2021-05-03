@@ -2,7 +2,7 @@
 import "./component/css/Nav.css";
 import React, { useState } from "react";
 import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
-import MainPage from "./page/MainPage"
+import MainPage from "./page/MainPage";
 import CommunityList from "./page/CommunityList.js";
 import ContentPage from "./page/ContentPage.js";
 import Mypage from "./page/Mypage";
@@ -19,6 +19,7 @@ function App() {
   const [categoryModal, setCategoryModal] = useState(false); // 덕
   const [loginModal, setLoginModal] = useState(false); // 덕
   const [isLogined, setIsLogined] = useState(false); // 덕
+
   const openCategoryModal = () => {
     // 덕
     setCategoryModal(true);
@@ -39,16 +40,16 @@ function App() {
     // 홍
     setcurrentUser(userInfo);
   };
-  
+
   const userLogin = () => {
     // 덕
     setIsLogined(true);
   };
 
-   const userLogout = () => {
-      //홍
-      setIsLogined(false);
-   };
+  const userLogout = () => {
+    //홍
+    setIsLogined(false);
+  };
 
   return (
     <div className="App">
@@ -64,21 +65,25 @@ function App() {
         </Route>
 
         <Route path="/signup">
-          <Signup currentUser={currentUser} handleCurrentUser={handleCurrentUser}></Signup>
+          <Signup
+            currentUser={currentUser}
+            handleCurrentUser={handleCurrentUser}
+          ></Signup>
         </Route>
 
-        <Route exact path="/community">  
+        <Route exact path="/community">
           <CommunityList />
         </Route>
+
 
         <Route path="/content/:id">
             <ContentPage />
         </Route>
 
-        <Route exact path='/'>
+        <Route exact path="/">
           <MainPage />
         </Route>
-     
+
         <Route path="/writepage">
           <WriteContent />
         </Route>
@@ -97,6 +102,6 @@ function App() {
       />
     </div>
   );
- }
+}
 
 export default App;
