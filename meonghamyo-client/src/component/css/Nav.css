@@ -27,6 +27,7 @@
   width: 50px;
   cursor: pointer;
   color: white;
+  padding-right: 90px;
   font-size: 30px;
 }
 #ham:hover,
@@ -36,7 +37,8 @@
 #loginBlock {
   width: 50px;
   height: 24px;
-  padding: 23px;
+  padding-right: 10px;
+  line-height: 24px;
   cursor: pointer;
   color: white;
   font-size: 15px;
@@ -48,7 +50,8 @@
 #signupBlock {
   width: 60px;
   height: 24px;
-  padding: 23px;
+  padding-right: 20px;
+  line-height: 24px;
   cursor: pointer;
   color: white;
   font-size: 15px;
