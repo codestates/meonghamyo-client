@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../component/css/Mypage.css";
 import { useHistory } from "react-router-dom";
 import UserInfoTable from "../component/UserInfoTable";
 import UserPostList from "../component/UserPostList";
 import axios from "axios";
 import Footer from "../component/Footer";
-
+axios.defaults.withCredentials = true;
 const Mypage = ({
   currentUser,
   fakeContent,
@@ -16,8 +16,34 @@ const Mypage = ({
 }) => {
   
   const [listCheck, setlistCheck] = useState(true);
+  const [currentPost, setcurrentPost] = useState([])
+  const [currentComment, setcurrentComment] = useState([])
   const [currentPic, setcurrentPic] = useState("")
   const history = useHistory();
+
+useEffect(()=>{
+  const postData = async () => {
+    await axios.get('https://localhost:4000/mypage/usercontent')
+  .then(res => {
+    let newCurrentPost = [...currentPost]
+    newCurrentPost = [...newCurrentPost,...res.data.data[0].userContents]
+    setcurrentPost(newCurrentPost)
+  })
+}
+postData();
+},[])
+
+useEffect(()=>{
+  const commentData = async () => {
+    await axios.get('https://localhost:4000/mypage/usercomment')
+  .then(res => {
+    let newCurrentComment = [...currentComment]
+    newCurrentComment = [...newCurrentComment,...res.data.data[0].userConmments]
+    setcurrentComment(newCurrentComment)
+  })
+}
+commentData();
+},[])
 
   const handleLogout = () => {
     axios.post('https://localhost:4000/mypage/logout')
@@ -43,6 +69,9 @@ const Mypage = ({
     console.log("이건",e.target.files[0])
   }
 
+
+  
+
   return currentUser === null ? (
     <div>
       currentUser가 Null 일 경우 에러 떠서 보기싫어가지고 일단 임시로 이걸 열어
@@ -54,7 +83,6 @@ const Mypage = ({
       <hr></hr>
       <div className="userInfoArea">
         <div className="pictureArea">
-          {console.log(currentPic)}
           {currentPic.length === 0 ? <img className="userImage" src={currentUser.img} />:
           <img className="userImage" src={`https://localhost:4000/${currentPic}`} />}
           {/* <img className="userImage" src={currentUser.img} /> */}
@@ -64,6 +92,7 @@ const Mypage = ({
         <UserInfoTable
           currentUser={currentUser}
           closeLoginModal={closeLoginModal}
+          userLogout={userLogout}
         />
       </div>
       <div className="postList">
@@ -91,9 +120,10 @@ const Mypage = ({
           fakeContent={fakeContent}
           fakeComment={fakeComment}
           currentUser={currentUser}
+          currentPost={currentPost}
+          currentComment={currentComment}
         />
       </div>
-
       <button className="logoutBtn" onClick={handleLogout}>
         로그아웃
       </button>

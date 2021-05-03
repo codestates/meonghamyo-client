@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import fakedata from "../fakedata";
 import "./css/LoginModal.css";
+axios.defaults.withCredentials = true;
 function LoginModal({ open, close, userLogin, handleCurrentUser }) {
   const [loginInputValue, setloginInputValue] = useState({}); // 홍
 
