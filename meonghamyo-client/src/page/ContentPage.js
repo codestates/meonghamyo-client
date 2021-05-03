@@ -15,7 +15,6 @@ function ContentPage({ isLogined }){
     const [writeComment, setWriteComment] = useState(false);
     const [comment, setComment] = useState('');
     const [loginedUser, setLoginedUser] = useState('');
-    const [loading2, setLoading2] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,10 +30,8 @@ function ContentPage({ isLogined }){
             .then((res) => {
                 console.log(res)
                 setLoginedUser(res.data.data[0].userInfo.id);
-                setLoading2(false);
             })
         }
-        
         fetchData();
         isSame();
     },[comment])
@@ -57,7 +54,7 @@ function ContentPage({ isLogined }){
         })
     };
 
-    if(loading || loading2){
+    if(loading){
         return <h2>Loading...</h2>
     }
     return(
