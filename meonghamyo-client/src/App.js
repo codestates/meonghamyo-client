@@ -75,8 +75,9 @@ function App() {
           <CommunityList />
         </Route>
 
-        <Route path="/community/content/">
-          <ContentPage />
+
+        <Route path="/content/:id">
+            <ContentPage />
         </Route>
 
         <Route exact path="/">

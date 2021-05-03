@@ -1,14 +1,25 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { FaUserAltSlash } from "react-icons/fa";
+import LeaveModal from "../component/LeaveModal";
+
 axios.defaults.withCredentials = true;
 const UserInfoTable = ({ currentUser}) => {
   const [modifiedUserInfo, setmodifiedUserInfo] = useState({});
   const [isModify, setisModify] = useState(false);
+  const [runLeave, setRunLeave] = useState(false);
   const inputValue = (key) => (e) => {
     let newmodifiedUserInfo = { ...modifiedUserInfo };
     newmodifiedUserInfo = { ...newmodifiedUserInfo, [key]: e.target.value };
     setmodifiedUserInfo(newmodifiedUserInfo);
+  };
+
+  const onOffLeaveModal = () => {
+    if(!runLeave){
+      setRunLeave(true);
+    } else {
+      setRunLeave(false);
+    }
   };
 
   const handleUserInfo = () => {
@@ -176,9 +187,10 @@ const UserInfoTable = ({ currentUser}) => {
             >
               회원정보 수정
             </button>
-            <button className="userLeaveBtn" >
+            <button className="userLeaveBtn" onClick={onOffLeaveModal}>
               회원 탈퇴
             </button>
+            <LeaveModal open={runLeave} close={onOffLeaveModal} />
           </>
         )}
       </div>

@@ -67,15 +67,3 @@
     padding-left: 20px;
     text-align: left;
 }
-.tdNickName {
-    text-align: left;
-    width: 100px;
-    padding-left: 20px;
-}
-.tdComment {
-    text-align: left;
-    padding-left: 20px;
-}
-.tdCreatedAt {
-    width: 100px;
-}

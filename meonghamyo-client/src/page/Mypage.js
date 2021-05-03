@@ -14,12 +14,15 @@ const Mypage = ({
   closeLoginModal,
 
 }) => {
+  
   const [listCheck, setlistCheck] = useState(true);
   const [currentPic, setcurrentPic] = useState("")
   const history = useHistory();
+
   const handleLogout = () => {
-    axios.post("https://localhost:4000/mypage/logout").then((res) => {
-      userLogout();
+    axios.post('https://localhost:4000/mypage/logout')
+    .then(res => {
+      userLogout(); 
       closeLoginModal();
       history.push("/");
     });
