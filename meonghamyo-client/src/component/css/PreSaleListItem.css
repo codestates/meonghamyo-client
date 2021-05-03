@@ -4,11 +4,11 @@
 }
 .item {
    padding: 2%;
-   width: 60%;
+   width: 30%;
    border: 0.2rem solid gray;
    border-radius: 15%;
-   margin-top: 10%;
-   margin-bottom: 5%;
+   margin-top: 2%;
+   margin-bottom: 1%;
    text-align: center;
 }
 
@@ -18,7 +18,9 @@
 }
 .itemGroup {
    display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-left: 10%;
+   justify-content: space-around;
+   flex-direction: row;
+   flex-wrap: wrap;
+   width: 100%;
+   min-width: 200px;
 }
