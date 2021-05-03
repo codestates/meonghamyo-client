@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../component/css/CommunityList.css';
-import fakedata from '../fakedata';
 import Pagination from '../component/Pagination';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -18,13 +17,14 @@ function CommunityList() {
         const fetchPosts = async () => {
            await axios.get("https://localhost:4000/content/communitypage")
            .then((result) => {
+               console.log(result)
                setPosts(result.data.data[0].contentInfo);
            })
            setLoading(false);
         };
   
         fetchPosts();
-    }, []);
+    },[]);
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -37,24 +37,36 @@ function CommunityList() {
 
     return(
         <div>
-            <h1 className='communityBox'>커뮤니티 게시판</h1>
+            <section className='sec1'>
+            </section>
+            <h1 className='communityHead'>커뮤니티 게시판</h1>
             <div id='main'>
-                <section className='comunityTable'>
-                    {currentPosts.map((post) => (
-                        <div key={post.id} className='listItem'>
-                            <div className='listWriter'>{post.userId}</div>
-                            <div className='listTitle'>
-                                <Link to={`/content/${post.id}`}>{post.title}</Link>
+                <div className='communityTable'>
+                    <div className='listHead'>
+                        <div className='listItem'>
+                            <div className='listWriterHead'>작성자</div>
+                            <div className='listTitleHead'>
+                                제목
                             </div>
-                            <div className='listCreatedAt'>{post.createdAt}</div>
+                            <div className='listCreatedAtHead'>작성날짜</div>
                         </div>
+                    </div>
+                    
+                    {currentPosts.map((post) => (<>
+                        <div key={post.id} className='listItem'>
+                            <div className='listWriter'>{post.user.nickname}</div>
+                            <div className='listTitle'>
+                                <Link className='listLink' to={`/content/${post.id}`}>{post.title}</Link>
+                            </div>
+                            <div className='listCreatedAt'>{`${post.createdAt.slice(0,4)}/${post.createdAt.slice(5,7)}/${post.createdAt.slice(8,10)}`}</div>
+                        </div>
+                        <hr className='communityhr' />
+                        </>
                     ))}
-                </section>
+                </div>
             </div>
             <div className='newContent'>
-                <button className='newContentBtn'>
-                    <Link to='/writepage'>새 글쓰기</Link>
-                </button>
+                <Link className='newContentBtn' to='/writepage'>새 글쓰기</Link>
             </div>
             <Pagination
             postsPerPage={postsPerPage}
