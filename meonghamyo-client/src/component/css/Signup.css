@@ -1,11 +1,113 @@
+
+
 .inputArea {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+  
   /* padding-left: 585px; */
 }
+
+.emailDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+.pwdDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
+}
+
+.pwdCheckDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
+}
+
+.nameDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
+}
+
+.birthDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
+}
+
+.birthInputDiv{
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
+}
+.nicknameDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgba(255, 192, 203, 0.493);
+  width: 25%;
+  margin-left : 37.5%;
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+
+
+
+}
 .signupForm {
+  align-items: center;
   text-align: center;
 }
 .inputAreaBirth {

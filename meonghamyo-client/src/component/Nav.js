@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import CategoryModal from "../component/CategoryModal";
 import LoginModal from "../component/LoginModal";
@@ -15,6 +15,7 @@ function Nav({
   handleCurrentUser,
   currentUser,
 }) {
+
   return (
     <div>
       <nav>

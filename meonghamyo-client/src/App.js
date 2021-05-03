@@ -1,6 +1,6 @@
 // import './App.css';
 import "./component/css/Nav.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
 import MainPage from "./page/MainPage";
 import CommunityList from "./page/CommunityList.js";
@@ -50,6 +50,7 @@ function App() {
     //홍
     setIsLogined(false);
   };
+
 
   return (
     <div className="App">
