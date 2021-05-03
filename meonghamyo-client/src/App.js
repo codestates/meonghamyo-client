@@ -7,10 +7,9 @@ import CommunityList from "./page/CommunityList.js";
 import ContentPage from "./page/ContentPage.js";
 import Mypage from "./page/Mypage";
 import Signup from "./page/Signup";
-import fakedata from "./fakedata";
 import Nav from "./component/Nav";
 import WriteContent from "./page/WriteContent";
-import axios from "axios";
+import HomePage from "./page/HomePage";
 
 function App() {
   const [currentUser, setcurrentUser] = useState(null); // 홍
@@ -75,13 +74,16 @@ function App() {
           <CommunityList />
         </Route>
 
+        <Route exact path="/parselout">
+          <MainPage />
+        </Route>
 
         <Route path="/content/:id">
-            <ContentPage />
+            <ContentPage isLogined={isLogined} />
         </Route>
 
         <Route exact path="/">
-          <MainPage />
+          <HomePage />
         </Route>
 
         <Route path="/writepage">

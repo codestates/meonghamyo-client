@@ -14,9 +14,12 @@
 #navLogo {
   flex-grow: 1;
   align-items: center;
-  text-align: center;
-  color: white;
+  text-align: center;  
+}
+.logo{
   font-size: 30px;
+  text-decoration-line: none;
+  color: white;
   font-weight: bold;
 }
 #ham {
