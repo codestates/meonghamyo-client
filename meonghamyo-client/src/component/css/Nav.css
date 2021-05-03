@@ -64,6 +64,6 @@
 }
 /* 홍 profileImg 수정 */
 body {
-  margin-top: 0;
-  padding-top: 70px;
+  margin-top: 70px;
+  padding-top: 0px;
 }
