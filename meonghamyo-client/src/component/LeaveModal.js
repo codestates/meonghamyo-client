@@ -1,8 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./css/LeaveModal.css";
-function LeaveModal({ open, close }) {
+axios.defaults.withCredentials = true;
+function LeaveModal({ open, close, userLogout }) {
+  const history = useHistory();
 
+  const handleLeave = () => {
+    axios.delete("https://localhost:4000/mypage/userdelete").then((res) => {
+      userLogout();
+      close();
+      history.push("/");
+    });
+  };
   return (
     <div>
       {open ? (
@@ -12,12 +22,12 @@ function LeaveModal({ open, close }) {
               &times;
             </span>
             <div>정말 탈퇴하시겠습니까?</div>
-              <button className="okBtn" >
-                확인
-              </button>
-              <button className="okBtn" onClick={close}>
-                취소
-              </button>
+            <button className="okBtn" onClick={handleLeave}>
+              확인
+            </button>
+            <button className="okBtn" onClick={close}>
+              취소
+            </button>
           </div>
         </div>
       ) : null}
