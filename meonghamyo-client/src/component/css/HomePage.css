@@ -11,7 +11,7 @@ html, body, #root, .App {
     text-align: center;
     align-items: center;
     color:black;
-    flex-grow: 1;
+    width: 50%;
     height: 100%;
     background-image: url('https://source.unsplash.com/2l0CWTpcChI');
     background-size: cover;
@@ -20,18 +20,20 @@ html, body, #root, .App {
 }
 .gotopacelout:hover {
     width: 55%;
+    -webkit-filter: brightness(80%);
 }
 .gotocommunity {
     text-align: center;
     align-items: center;
-    flex-grow: 1;
+    width: 50%;
     height: 100%;
     background-image: url('https://source.unsplash.com/IFxjDdqK_0U');
     background-size:cover;
     background-position-x: center;
 }
-.gotocommunity:hover{
-    width: 55%;    
+.gotocommunity:hover {
+    width: 55%;
+    -webkit-filter: brightness(80%);    
 }
 .str {
     z-index: 1;

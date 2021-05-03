@@ -19,10 +19,12 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
       })
       .then((res) => {
         userLogin()
+        sessionStorage.setItem('ID','hohoho')
         return axios.get("https://localhost:4000/mypage/userinfo")
       })
       .catch(err=>err)
-      .then(res => handleCurrentUser(res.data.data[0].userInfo))
+      .then(res => 
+        handleCurrentUser(res.data.data[0].userInfo))
       .catch(err=>err)
   };
   return (
