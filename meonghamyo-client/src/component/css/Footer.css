@@ -1,6 +1,7 @@
 .Footer {
    text-align: center;
    vertical-align: bottom;
+   position: fixed;
    -webkit-user-modify: read-write-plaintext-only;
    color: white;
    font-weight: bold;

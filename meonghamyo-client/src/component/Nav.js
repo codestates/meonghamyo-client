@@ -22,7 +22,9 @@ function Nav({
           <li id="ham" onClick={openCategoryModal}>
             <AiOutlineMenu />
           </li>
-          <li id="navLogo">MeongHaMyo</li>
+          <li id="navLogo">
+            <Link className='logo' to='/'>MeongHaMyo</Link>
+            </li>
           {isLogined && currentUser  ?  (
             <>
               <Link to="/mypage">

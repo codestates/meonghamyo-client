@@ -11,7 +11,7 @@ function CategoryModal({open, close }) {
                     <span className='close' onClick={close}>&times;</span>
                     <ul className='modalData'>
                         <li className='category'>
-                            <Link className='categoryList' to='/' onClick={close}>분양</Link>
+                            <Link className='categoryList' to='/parselout' onClick={close}>분양</Link>
                         </li>
                         <li className='category'>
                             <Link className='categoryList' to='/community' onClick={close}>
