@@ -7,25 +7,38 @@ import "./css/TagsInput.css";
 import { FaPlusCircle } from "react-icons/fa";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const WriteArea = () => {
    const [boardName, setBoardName] = useState({
       boardName: "parcelOutContent",
    });
-   const [title, setTitle] = useState("");
-   const [content, setContent] = useState("");
+   //const [title, setTitle] = useState("");
+   const [boardContent, setBoardContent] = useState({
+      title: "",
+      contentBody: "",
+   });
    const [img, setImg] = useState("");
    const [tags, setTags] = useState([]);
    const [errors, setErrors] = useState("");
    const [viewContent, setViewContent] = useState([]);
 
    //contentSelect(분양게시글, 커뮤니티게시글)
-   const handleChange = (event) => {
+   const handleBoardChange = (event) => {
       setBoardName({ boardName: event.target.value });
    };
-   //title,content,img
-   const handleInputValue = (key) => (e) => {
-      setTitle({ [key]: e.target.value });
+   //title데이터 가져오는 함수
+   // const handleInputValue = (key) => (e) => {
+   //    setTitle({ [key]: e.target.value });
+   // };
+
+   const getValue = (e) => {
+      const { name, value } = e.target;
+      setBoardContent({
+         ...boardContent,
+         [name]: value,
+      });
+      console.log(boardContent);
    };
 
    //태그
@@ -34,14 +47,15 @@ const WriteArea = () => {
          setTags({ [name]: value });
       }
    };
+   const history = useHistory();
+
    //데이터 보내기 (오류검사)
    //데이터 추가로 날짜, 작성자 닉네임,
    const submitHandler = () => {
       if (
-         tags.length === 0 ||
-         title.length === 0 ||
-         title === "" ||
-         title.borderTitle === ""
+         boardContent.title.length === 0 ||
+         boardContent.title === "" ||
+         boardContent.title.title === ""
       ) {
          //title이 빈값일 때(타이핑 하다가 내용 다 없애고 보낼때 에러메시지가 안나온다.) "" 이렇게 보내주고 있다. ===> (해결) 글을 썻다 지웠다해도 객체의 키값이 존재하기 때문에 예외처리에서 벗어났었다.
          setErrors("빈 작성란을 채워주세요");
@@ -51,79 +65,74 @@ const WriteArea = () => {
                const prevErrors = "";
                return prevErrors;
             });
+            //Submit form
+            setViewContent(
+               viewContent.concat({
+                  ...img,
+                  ...boardName,
+                  ...boardContent,
+                  ...tags,
+               })
+            );
+            axios
+               .post("https://localhost:4000/content/create", viewContent[0], {
+                  withCredentials: true,
+               })
+               .then((res) => {
+                  // history.push("/community");
+               })
+               .catch((err) => {
+                  console.log(err);
+               });
          } else {
             //Submit form
             setViewContent(
                viewContent.concat({
+                  ...img,
                   ...boardName,
-                  ...title,
-                  ...content,
+                  ...boardContent,
                   ...tags,
                })
             );
+            console.log(viewContent[0]);
+            axios
+               .post("https://localhost:4000/content/create", viewContent[0], {
+                  withCredentials: true,
+               })
+               .then((res) => {
+                  // history.push("/community");
+               })
+               .catch((err) => {
+                  console.log(err);
+               });
          }
       }
    };
+   const selectImage = (e) => {
+      if (e.target.files !== null) {
+         const fd = new FormData();
+         fd.append("image", e.target.files[0]);
+         console.log(fd);
+         setImg({ img: fd });
 
-   //서버 통신
-   // const submitContent = () => {
-   //    if (
-   //       tags.length === 0 ||
-   //       title.length === 0 ||
-   //       title === "" ||
-   //       title.borderTitle === ""
-   //    ) {
-   //       //title이 빈값일 때(타이핑 하다가 내용 다 없애고 보낼때 에러메시지가 안나온다.) "" 이렇게 보내주고 있다.
-   //       setErrors("빈 작성란을 채워주세요");
-   //    } else {
-   //       if (errors) {
-   //          setErrors(() => {
-   //             const prevErrors = "";
-   //             return prevErrors;
-   //          }).then(() => {
-   //             axios
-   //                .post("/https://meonghamyo.com/content/create", {
-   //                   title: viewContent[0].borderTitle,
-   //                   boardName: viewContent[0].boardName,
-   //                   content: viewContent[0].content,
-   //                   tags: viewContent[0].tags,
-   //                })
-   //                .then(() => {
-   //                   alert("게시글을 작성하셨습니다");
-   //                });
-   //          });
-   //       } else {
-   //          axios
-   //             .post("/https://meonghamyo.com/content/create", {
-   //                title: viewContent[0].borderTitle,
-   //                boardName: viewContent[0].boardName,
-   //                content: viewContent[0].content,
-   //                tags: viewContent[0].tags,
-   //             })
-   //             .then(() => {
-   //                alert("게시글을 작성하셨습니다");
-   //             });
-   //       }
-   //    }
-   // };
+         setImg(e.target.files[0]);
 
-   //이미지 넣는법 코드 실험
-   // function MyCustomUploadAdapterPlugin(editor) {
-   //    editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-   //       return new UploadAdapter(loader);
-   //    };
-   // }
-   // ClassicEditor.create(document.querySelector("#editor"), {
-   //    extraPlugins: [MyCustomUploadAdapterPlugin],
-   // }).catch((error) => {
-   //    console.log(error);
-   // });
+         // setImg(fd);
+         // axios
+         //    .post("https://localhost:4000/user/profileupload", fd)
+         //    .then((res) => {
+         //       console.log(res);
+         //       setImg(res.data);
+         //    });
+      }
+      // console.log("이건", e.target.files[0]);
+   };
 
    return (
       <form className="writeArea" onSubmit={(e) => e.preventDefault()}>
          <div className="contentSelect">
             <label className="contentSelectTitle">게시글 선택</label>
-            <select value={boardName.value} onChange={handleChange}>
+            <select value={boardName.value} onChange={handleBoardChange}>
                <option name="parcelOutContent" value="parcelOutContent">
                   분양 게시글
                </option>
@@ -136,9 +145,10 @@ const WriteArea = () => {
             <label className="contentTitle">제목</label>
             <input
                className="borderTitle"
-               name="borderTitle"
+               type="text"
+               name="title"
                placeholder="제목을 작성해주세요"
-               onChange={handleInputValue("borderTitle")}
+               onChange={getValue}
             ></input>
          </div>
          <div className="borderContentName">
@@ -147,16 +157,40 @@ const WriteArea = () => {
          <div className="borderContent" value="borderContent">
             <CKEditor
                editor={ClassicEditor}
-               data="내용을 입력해주세요"
+               data="" //이곳에다 state값을 넣어줘서 계속 오류가 났음.
+               onReady={(editor) => {
+                  console.log("Editor is ready to use!", editor);
+               }}
                // placeholder를 사용하려면 config설정을 따로 해줘야 한다.
-               config={{ ckfinder: { uploadUrl: "/uploads" } }}
+               // config={{ ckfinder: { uploadUrl: "/uploads" } }}
+
+               // onChange={(event, editor) => {
+               //    handleChange(editor);
+               // }}
                onChange={(event, editor) => {
                   const data = editor.getData();
-                  // console.log(data);
-                  setContent({ ...content, content: data });
-                  console.log(content);
+                  setBoardContent({ ...boardContent, contentBody: data });
+                  console.log(boardContent);
+               }}
+               onBlur={(event, editor) => {
+                  console.log("Blur", editor);
+               }}
+               onFocus={(event, editor) => {
+                  console.log("Focus", editor);
                }}
             />
+         </div>
+         <div className="pictureArea">
+            {/* {console.log(img)} */}
+            {/* <img className="userImage" src={`https://localhost:4000/${img}`} /> */}
+
+            {/* <img className="userImage" src={currentUser.img} /> */}
+            {/* <button className="pictureBtn" onClick={}>사진 변경</button> */}
+            <input
+               type="file"
+               accept="image/jpeg, image/jpg, image/png"
+               onChange={selectImage}
+            ></input>
          </div>
          <div className="addTagHeader">
             <TagsInput
@@ -170,7 +204,7 @@ const WriteArea = () => {
          </div>
          <div className="alertError">{errors}</div>
          <div className="boardButton">
-            <Link to="/comunity">
+            <Link to="/community">
                <input className="backButton" type="submit" value="목록으로" />
             </Link>
             {/* <Link to="/"> */}
