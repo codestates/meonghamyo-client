@@ -126,3 +126,14 @@
     position: fixed;
     z-index: -1;
 }
+.close2 {
+    color: black;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .close2:hover{
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
