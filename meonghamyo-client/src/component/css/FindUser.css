@@ -1,14 +1,23 @@
 .findUserInfo {
     display: flex;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-top: 50px;
+    background-image: url('https://source.unsplash.com/_C5zsV_p-YI');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    /* color:white; */
 }
-.inputEmail, .inputName, .inputBirth {
+.finputEmail, .finputName, .finputBirth {
     width: 300px;
     height: 50px;
     margin: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
 }
 .findEmailBtn, .findPwBtn{
     width: 300px;
@@ -22,15 +31,15 @@
     margin: 10px;
     line-height: 100px;
     border-radius: 10px;
-    background-color: rgb(194, 248, 255);
+    background-color: rgba(194, 248, 255, 0.7);
 }
 .err {
     width: auto;
-    height: 100px;
+    height: 50px;
     padding: 10px;
     text-align: center;
     margin: 10px;
-    line-height: 100px;
+    line-height: 50px;
     border-radius: 10px;
-    background-color: rgba(255, 192, 203, 0.493);
+    background-color: rgba(255, 255, 255, 0.658);
 }

@@ -43,7 +43,7 @@ function CommunityList({ isLogined }) {
             <div id='main'>
                 <div className='communityTable'>
                     <div className='listHead'>
-                        <div className='listItem'>
+                        <div className='firstList'>
                             <div className='listWriterHead'>작성자</div>
                             <div className='listTitleHead'>
                                 제목

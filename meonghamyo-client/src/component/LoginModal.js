@@ -52,6 +52,12 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
                     className="loginPassword"
                     type="password"
                     onChange={inputValue("password")}
+                    onKeyDown={(e) => {
+                        if(e.key === 'Enter'){
+                          handleLogin();
+                        }
+                      }
+                    }
                   ></input>
                 </div>
               </div>
@@ -60,7 +66,9 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
                 로그인{" "}
               </button>
             </div>
-            <Link className='findUserLink' onClick={close} to='/finduser'>이메일 / 패스워드 찾기</Link>
+            <Link className='findUserLink' onClick={close} to='/finduser'>
+              <div className='findUserLink'>이메일 / 패스워드 찾기</div>
+            </Link>
           </div>
         </div>
       ) : null}
