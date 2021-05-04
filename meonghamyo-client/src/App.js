@@ -11,6 +11,7 @@ import Nav from "./component/Nav";
 import WriteContent from "./page/WriteContent";
 import HomePage from "./page/HomePage";
 import FindUser from "./page/FindUser";
+import axios from "axios";
 
 function App() {
   const [currentUser, setcurrentUser] = useState(null); // 홍
@@ -43,13 +44,21 @@ function App() {
     // 덕
     setIsLogined(true);
   };
-
   const userLogout = () => {
     //홍
     setIsLogined(false);
   };
 
-
+  useEffect(()=>{
+    if(sessionStorage.length!==0){
+      axios.get("https://localhost:4000/mypage/userinfo")
+      .then(res => {
+        handleCurrentUser(res.data.data[0].userInfo)
+        setIsLogined(true)
+      })
+      
+    }
+  },[])
   return (
     <div className="App">
       <Switch>
@@ -58,9 +67,10 @@ function App() {
             currentUser={currentUser}
             userLogout={userLogout}
             closeLoginModal={closeLoginModal}
+            handleCurrentUser={handleCurrentUser}
           />
         </Route>
-
+      
         <Route path="/signup">
           <Signup
             currentUser={currentUser}
@@ -103,6 +113,7 @@ function App() {
         userLogin={userLogin}
         handleCurrentUser={handleCurrentUser}
         currentUser={currentUser}
+        
       />
     </div>
   );

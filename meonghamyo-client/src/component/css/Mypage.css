@@ -16,6 +16,14 @@
   width: 100%;
 }
 
+.input-file-button{
+  padding: 6px 25px;
+  background-color:black;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
 .userInfoText span {
   color: #404040;
   font-size: 14px;
