@@ -1,0 +1,36 @@
+.findUserInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+}
+.inputEmail, .inputName, .inputBirth {
+    width: 300px;
+    height: 50px;
+    margin: 10px;
+}
+.findEmailBtn, .findPwBtn{
+    width: 300px;
+    height: 40px;
+}
+.yourEmail, .yourPw {
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    line-height: 100px;
+    border-radius: 10px;
+    background-color: rgb(194, 248, 255);
+}
+.err {
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    line-height: 100px;
+    border-radius: 10px;
+    background-color: rgba(255, 192, 203, 0.493);
+}

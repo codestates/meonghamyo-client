@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import fakedata from "../fakedata";
 import "./css/LoginModal.css";
 axios.defaults.withCredentials = true;
@@ -59,6 +60,7 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
                 로그인{" "}
               </button>
             </div>
+            <Link className='findUserLink' onClick={close} to='/finduser'>이메일 / 패스워드 찾기</Link>
           </div>
         </div>
       ) : null}

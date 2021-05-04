@@ -32,7 +32,6 @@ function ContentPage({ isLogined }){
                 setLoginedUser(res.data.data[0].userInfo.id);
             })
         }
-        
         fetchData();
         isSame();
     },[comment])

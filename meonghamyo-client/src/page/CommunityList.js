@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../component/Footer';
 axios.defaults.withCredentials = true;
 
-function CommunityList() {
+function CommunityList({ isLogined }) {
     // let counter = 0;
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
