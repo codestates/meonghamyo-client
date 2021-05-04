@@ -4,7 +4,10 @@
   align-items: center;
   width: 100%;
   height: 400px;
-  margin-left : 150px
+  margin-left : 150px;
+  padding-bottom: 100px;
+  padding-top : 70px
+
 }
 
 .userInfoText {
@@ -16,12 +19,15 @@
   width: 100%;
 }
 
-.input-file-button{
+.inputFileButton{
   padding: 6px 25px;
   background-color:black;
   border-radius: 4px;
   color: white;
   cursor: pointer;
+  position: relative;
+  right: 220px;
+  top : 30px;
 }
 
 .userInfoText span {
@@ -35,13 +41,14 @@
 
 .userImage {
   padding: 40px;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 70%;
 }
 .modifyBtnDiv{
   display: flex;
-  padding-right : 300px;
+  margin-left: 800px;
+  margin-top: 520px;
 }
 .modifyBtnDiv button{
   width : 100px;
@@ -99,6 +106,9 @@ button:hover {
 .userInfoTable {
   width: 100%;
   border-spacing: 25px;
+  position:absolute;
+  margin-left: 400px;
+  
 }
 
 .userInfoTable tr {
@@ -109,6 +119,11 @@ button:hover {
 .userInfoTable tr td {
   font-weight: 600;
   font-size: 17px;
+  padding-bottom: 20px;
+}
+
+.userInfoTable button {
+  margin-left: 100px;
 }
 
 .userInfoTable input {
@@ -139,4 +154,12 @@ button:hover {
   color: #9a9a9a;
   font-weight: 600;
   font-size: 40px;
+}
+
+#listTitle{
+  margin-left : 45%;
+}
+
+.h1PostComment{
+  margin-left: 270px;
 }

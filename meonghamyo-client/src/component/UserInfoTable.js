@@ -58,10 +58,10 @@ const UserInfoTable = ({ currentUser,userLogout,handleCurrentUser}) => {
         })
         .then(res => alert('비밀번호 변경 완료!'))
       } else {
-        console.log("변경할 비밀번호 불일치");
+        alert("변경할 비밀번호들이 일치하지 않습니다");
       }
     } else {
-      console.log("현재 비밀번호 불일치");
+      alert('현재 비밀번호가 일치하지 않습니다.');
     }
 
 
