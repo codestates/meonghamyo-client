@@ -8,8 +8,6 @@ import Footer from "../component/Footer";
 axios.defaults.withCredentials = true;
 const Mypage = ({
   currentUser,
-  fakeContent,
-  fakeComment,
   userLogout,
   closeLoginModal,
   handleCurrentUser,
@@ -18,6 +16,22 @@ const Mypage = ({
   const [currentPost, setcurrentPost] = useState([]);
   const [currentComment, setcurrentComment] = useState([]);
   const [currentPic, setcurrentPic] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setpostPerPage] = useState(3);
+  const [commentPerPage, setcommentPerPage] = useState(3);
+  
+  
+  const indexOfLastComment = currentPage * commentPerPage;
+  const indexOfFirstComment = indexOfLastComment - commentPerPage;
+  const nowComments = currentComment.slice(indexOfFirstComment, indexOfLastComment);
+
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const nowPosts = currentPost.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber);
+  }
+
   const history = useHistory();
 
   useEffect(() => {
@@ -106,7 +120,7 @@ const Mypage = ({
             className="userImage"
             src={`https://localhost:4000/${currentUser.img}`}
           />
-          <label className="input-file-button" for="inputFile">
+          <label className="inputFileButton" for="inputFile">
             업로드
           </label>
           <input
@@ -125,7 +139,7 @@ const Mypage = ({
         />
       </div>
       <div className="postList">
-        <h1>내가 쓴 글 리스트</h1>
+        <h1 id="listTitle">내가 쓴 글 리스트</h1>
         <div className="listBtnDiv">
           <button
             className="userPostListBtn"
@@ -146,11 +160,16 @@ const Mypage = ({
         </div>
         <UserPostList
           listCheck={listCheck}
-          fakeContent={fakeContent}
-          fakeComment={fakeComment}
           currentUser={currentUser}
           currentPost={currentPost}
           currentComment={currentComment}
+          postPerPage={postPerPage}
+          totalPosts={currentPost.length}
+          paginate={paginate}
+          nowPosts={nowPosts}
+          nowComments={nowComments}
+          totalComments={currentComment.length}
+          commentPerPage={commentPerPage}
         />
       </div>
       <button className="logoutBtn" onClick={handleLogout}>
