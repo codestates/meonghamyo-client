@@ -45,14 +45,14 @@ function FindUser() {
                 <h3>이메일 찾기</h3>
                 <div className='fbox'>
                     <input 
-                    className='inputName' 
+                    className='finputName' 
                     type='text' 
                     placeholder='이름을 입력하세요'
                     onChange={(e) => setName(e.target.value)} 
                     />
                 </div>
                 <div className='fbox'>
-                    <input className='inputBirth' 
+                    <input className='finputBirth' 
                     type='text'
                     placeholder='생년월일을 입력하세요. 예: 2000-01-01' 
                     onChange={(e) => setBirth(e.target.value)} 
@@ -71,10 +71,15 @@ function FindUser() {
                 <h3>패스워드 찾기</h3>
                 <div className='fbox'>
                     <input
-                    className="inputEmail"
+                    className="finputEmail"
                     type="text"
                     placeholder="이메일을 입력하세요"
                     onChange={(e) => setEmail(e.target.value)} 
+                    onKeyDown={(e) => {
+                        if(e.key === 'Enter'){
+                            pwFinder();
+                        }
+                    }}
                     />
                 </div>
                 <button className='findPwBtn' onClick={pwFinder}> 패스워드 찾기</button>
