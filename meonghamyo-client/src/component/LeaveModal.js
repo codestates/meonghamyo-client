@@ -8,6 +8,7 @@ function LeaveModal({ open, close, userLogout }) {
 
   const handleLeave = () => {
     axios.delete("https://localhost:4000/mypage/userdelete").then((res) => {
+      alert('회원 탈퇴가 완료되었습니다.')
       userLogout();
       close();
       history.push("/");
