@@ -10,11 +10,10 @@ import Signup from "./page/Signup";
 import Nav from "./component/Nav";
 import WriteContent from "./page/WriteContent";
 import HomePage from "./page/HomePage";
+import FindUser from "./page/FindUser";
 
 function App() {
   const [currentUser, setcurrentUser] = useState(null); // 홍
-  const [fakeContent, setfakeContent] = useState(null); // 홍
-  const [fakeComment, setfakeComment] = useState(null); // 홍
   const [categoryModal, setCategoryModal] = useState(false); // 덕
   const [loginModal, setLoginModal] = useState(false); // 덕
   const [isLogined, setIsLogined] = useState(false); // 덕
@@ -57,8 +56,6 @@ function App() {
         <Route path="/mypage">
           <Mypage
             currentUser={currentUser}
-            fakeContent={fakeContent}
-            fakeComment={fakeComment}
             userLogout={userLogout}
             closeLoginModal={closeLoginModal}
           />
@@ -71,8 +68,12 @@ function App() {
           ></Signup>
         </Route>
 
+        <Route path="/finduser">
+          <FindUser />
+        </Route>  
+
         <Route exact path="/community">
-          <CommunityList />
+          <CommunityList isLogined={isLogined} />
         </Route>
 
         <Route exact path="/parselout">

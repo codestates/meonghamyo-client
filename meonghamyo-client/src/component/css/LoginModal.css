@@ -12,6 +12,7 @@
 .loginInfo {
   display: flex;
   padding-top: 50px;
+  margin-bottom: 10px;
 }
 .loginBlock .close {
   color: black;
@@ -50,4 +51,9 @@
 }
 .loginBtn:hover {
   background-color: red;
+}
+.findUserLink {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
 }
