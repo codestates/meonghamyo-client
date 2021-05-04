@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaUserAltSlash } from "react-icons/fa";
 import LeaveModal from "../component/LeaveModal";
 axios.defaults.withCredentials = true;
-const UserInfoTable = ({ currentUser,userLogout}) => {
+const UserInfoTable = ({ currentUser,userLogout,handleCurrentUser}) => {
   const [modifiedUserInfo, setmodifiedUserInfo] = useState({});
   const [isModify, setisModify] = useState(false);
   const [runLeave, setRunLeave] = useState(false);
@@ -30,7 +30,16 @@ const UserInfoTable = ({ currentUser,userLogout}) => {
         nickname : modifiedUserInfo.nickname,
         img : currentUser.img
       })
-      .then(res => setisModify(false)) // 재 렌더 해줘야 할듯 !
+      .then(res => {
+        alert('회원 정보가 변경되었습니다.')
+        return axios.get("https://localhost:4000/mypage/userinfo")
+        
+      })
+      .catch(err=>err)
+      .then(res =>{
+        setisModify(false)
+        handleCurrentUser(res.data.data[0].userInfo)
+      })
 
     } else {
       console.log("입력이 충분하지 않습니다.");
@@ -47,6 +56,7 @@ const UserInfoTable = ({ currentUser,userLogout}) => {
           nickname : currentUser.nickname,
           img : currentUser.img
         })
+        .then(res => alert('비밀번호 변경 완료!'))
       } else {
         console.log("변경할 비밀번호 불일치");
       }

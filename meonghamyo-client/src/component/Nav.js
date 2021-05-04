@@ -29,7 +29,7 @@ function Nav({
           {isLogined && currentUser  ?  (
             <>
               <Link to="/mypage">
-                <img className="profileImg" src={currentUser.img} />
+                <img className="profileImg" src={`https://localhost:4000/${currentUser.img}`} />
               </Link>
             </>
             // 홍  이미지 바꾼 부분
