@@ -28,7 +28,7 @@ function ContentPage({ isLogined }){
         const isSame = async () => {
             await axios.get('https://localhost:4000/mypage/userinfo')
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 setLoginedUser(res.data.data[0].userInfo.id);
             })
         }
@@ -45,6 +45,18 @@ function ContentPage({ isLogined }){
         }).then((res) => {
             document.querySelector('#commentInput').value = '';
             setComment('');
+        })
+    }
+    async function deleteComment(commentId){
+        await axios.delete(`https://localhost:4000/content/${id}/${commentId}/commentdelete`)
+        .then((go) => { 
+            // 댓글 삭제
+            axios.get(`https://localhost:4000/content/${id}`)
+            .then((res) => {
+                console.log(res)
+                setData(res.data.data[0]);
+                setLoading(false);
+            })
         })
     }
 
@@ -77,7 +89,7 @@ function ContentPage({ isLogined }){
             <div className='contentBtnBox'>
                 {(data.contentInfo.userId === loginedUser)?
                 <button>
-                    <div className='contentBtn' onClick={del} >삭제</div>
+                    <div className='contentBtn' onClick={del}>삭제</div>
                 </button>
                 :null}
                 {(data.contentInfo.userId === loginedUser)?
@@ -98,7 +110,12 @@ function ContentPage({ isLogined }){
                     <div className='commentBox'>
                         <div className='commentListInfo'>
                             <div className='commentListNickname'>{comment.userName}</div>
-                            <div className='commentListCreatedAt'>{comment.createdAt}</div>
+                            <div className='commentListCreatedAt'>{`${comment.createdAt.slice(0,4)}/${comment.createdAt.slice(5,7)}/${comment.createdAt.slice(8,10)}`}</div>
+                            {(comment.userId === loginedUser)?
+                            <span className="close2" onClick={() => deleteComment(comment.id)}>
+                                &times;
+                            </span>
+                          :null}
                         </div>
                         <div className='commentListBody'>{comment.commentBody}</div>
                     </div>
