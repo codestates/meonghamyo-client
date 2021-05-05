@@ -59,7 +59,7 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
                     className="loginPassword"
                     type="password"
                     onChange={inputValue("password")}
-                    onKeyDown={(e) => {
+                    onKeyPress={(e) => {
                         if(e.key === 'Enter'){
                           handleLogin();
                         }

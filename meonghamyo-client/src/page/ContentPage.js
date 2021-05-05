@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import reactHtmlParser from 'react-html-parser';
 axios.defaults.withCredentials = true;
 
+
 function ContentPage({ isLogined }){
     let params = useParams();
     let id = params.id;
@@ -60,19 +61,11 @@ function ContentPage({ isLogined }){
         })
     }
 
-   function newComment() {
-      setWriteComment(true);
-   }
-   async function postComment() {
-      await axios
-         .post(`https://localhost:4000/content/${id}/commentcreate`, {
-            commentBody: comment,
-         })
-         .then((res) => {
-            document.querySelector("#commentInput").value = "";
-            setComment("");
-         });
-   }
+    function del() {
+        axios.delete(`https://localhost:4000/content/${id}/delete`).then((res) => {
+            alert('게시물을 삭제했습니다')
+        })
+    };
 
     if(loading){
         return <h2>Loading...</h2>
@@ -127,40 +120,29 @@ function ContentPage({ isLogined }){
                             </span>
                           :null}
                         </div>
-                     </div>
-                     <div className="commentListBody">
-                        {comment.commentBody}
-                     </div>
-                  </div>
-               ))}
-               {isLogined ? (
-                  <button id="newCommentBtn" onClick={newComment}>
-                     댓글작성
-                  </button>
-               ) : null}
-               {writeComment ? (
-                  <div id="newCommentBox">
-                     <textarea
-                        id="commentInput"
-                        onChange={(e) => {
-                           setComment(e.target.value);
-                        }}
-                        onKeyDown={(e) => {
-                           if (e.key === "Enter") {
-                              postComment();
-                           }
-                        }}
-                     ></textarea>
-                     <button id="submitCommentBtn" onClick={postComment}>
-                        댓글 달기
-                     </button>
-                  </div>
-               ) : null}
+                        <div className='commentListBody'>{comment.commentBody}</div>
+                    </div>
+                ))}
+                {isLogined?
+                <button id='newCommentBtn' onClick={newComment}>댓글작성</button>
+                :null}
+                {writeComment?
+                    (<div id='newCommentBox'>
+                        <textarea id='commentInput' onChange={(e) =>{setComment(e.target.value)}} onKeyPress={
+                        (e) => {
+                            if(e.key === 'Enter') {
+                                postComment();
+                            }
+                        }
+                    }></textarea>
+                        <button id='submitCommentBtn' onClick={postComment}>댓글 달기</button>
+                    </div>):null
+                }
             </div>
             <Footer />
-         </div>
-      </div>
-   );
+        </div>
+        </div>
+    )
 }
 
 export default ContentPage;

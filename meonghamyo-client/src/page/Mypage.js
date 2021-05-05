@@ -172,8 +172,8 @@ const Mypage = ({
           commentPerPage={commentPerPage}
         />
       </div>
+      </div>
    );
 };
 
 export default Mypage;
-// 최신화
