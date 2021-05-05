@@ -13,10 +13,12 @@ html, body, #root, .App {
     color:black;
     width: 50%;
     height: 100%;
-    background-image: url('https://source.unsplash.com/2l0CWTpcChI');
+    background-image: url('https://source.unsplash.com/D1wiHCovGJ0');
     background-size: cover;
     background-size:cover;
     background-position-x: center;
+    transition-delay: all 0.5s;
+    -webkit-transition-duration: 0.5s;
 }
 .gotopacelout:hover {
     width: 55%;
@@ -27,25 +29,28 @@ html, body, #root, .App {
     align-items: center;
     width: 50%;
     height: 100%;
-    background-image: url('https://source.unsplash.com/IFxjDdqK_0U');
+    background-image: url('https://source.unsplash.com/E9kVmtiqqGE');
     background-size:cover;
     background-position-x: center;
+    -webkit-transition-duration: 0.5s;
 }
 .gotocommunity:hover {
-    width: 55%;
-    -webkit-filter: brightness(80%);    
+    width: 60%;
+    -webkit-filter: brightness(80%);
 }
 .str {
-    z-index: 1;
+    /* z-index: 1; */
     height: 100%;
     text-align: center;
     line-height: 300%;
     position:relative;
     font-size: 80px;
     font-weight: bold;
-    color:white;
+    color:rgb(68, 68, 68);
     text-decoration-line: none;
+    transition-duration: 0.5s;
 }
 .str:hover {
+    font-size: 90px;
     color: black;
 }

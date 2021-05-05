@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../component/Footer';
 axios.defaults.withCredentials = true;
 
-function CommunityList() {
+function CommunityList({ isLogined }) {
     // let counter = 0;
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -36,14 +36,14 @@ function CommunityList() {
     }
 
     return(
-        <div>
+        <div className='commulistpage'>
             <section className='sec1'>
             </section>
             <h1 className='communityHead'>커뮤니티 게시판</h1>
             <div id='main'>
                 <div className='communityTable'>
                     <div className='listHead'>
-                        <div className='listItem'>
+                        <div className='firstList'>
                             <div className='listWriterHead'>작성자</div>
                             <div className='listTitleHead'>
                                 제목

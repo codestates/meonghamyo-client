@@ -19,6 +19,17 @@
   width: 300px; 
   height: 100%;
   align-items: center;
+  animation: move 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+@keyframes move {
+  0% {
+    transform:  translateX(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform:  translateX(0);
+    opacity: 1;
+  }
 }
 /* The Close Button */
 .close {

@@ -10,11 +10,11 @@ import Signup from "./page/Signup";
 import Nav from "./component/Nav";
 import WriteContent from "./page/WriteContent";
 import HomePage from "./page/HomePage";
+import FindUser from "./page/FindUser";
+import axios from "axios";
 
 function App() {
   const [currentUser, setcurrentUser] = useState(null); // 홍
-  const [fakeContent, setfakeContent] = useState(null); // 홍
-  const [fakeComment, setfakeComment] = useState(null); // 홍
   const [categoryModal, setCategoryModal] = useState(false); // 덕
   const [loginModal, setLoginModal] = useState(false); // 덕
   const [isLogined, setIsLogined] = useState(false); // 덕
@@ -44,26 +44,33 @@ function App() {
     // 덕
     setIsLogined(true);
   };
-
   const userLogout = () => {
     //홍
     setIsLogined(false);
   };
 
-
+  useEffect(()=>{
+    if(sessionStorage.length!==0){
+      axios.get("https://localhost:4000/mypage/userinfo")
+      .then(res => {
+        handleCurrentUser(res.data.data[0].userInfo)
+        setIsLogined(true)
+      })
+      
+    }
+  },[])
   return (
     <div className="App">
       <Switch>
         <Route path="/mypage">
           <Mypage
             currentUser={currentUser}
-            fakeContent={fakeContent}
-            fakeComment={fakeComment}
             userLogout={userLogout}
             closeLoginModal={closeLoginModal}
+            handleCurrentUser={handleCurrentUser}
           />
         </Route>
-
+      
         <Route path="/signup">
           <Signup
             currentUser={currentUser}
@@ -71,8 +78,12 @@ function App() {
           ></Signup>
         </Route>
 
+        <Route path="/finduser">
+          <FindUser />
+        </Route>  
+
         <Route exact path="/community">
-          <CommunityList />
+          <CommunityList isLogined={isLogined} />
         </Route>
 
         <Route exact path="/parselout">
@@ -102,6 +113,7 @@ function App() {
         userLogin={userLogin}
         handleCurrentUser={handleCurrentUser}
         currentUser={currentUser}
+        
       />
     </div>
   );
