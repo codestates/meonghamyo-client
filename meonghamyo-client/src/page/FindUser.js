@@ -56,7 +56,7 @@ function FindUser() {
                     type='text'
                     placeholder='생년월일을 입력하세요. 예: 2000-01-01' 
                     onChange={(e) => setBirth(e.target.value)} 
-                    onKeyDown={(e) => {
+                    onKeyPress={(e) => {
                         if(e.key === 'Enter'){
                             emailFinder();
                         }
@@ -75,7 +75,7 @@ function FindUser() {
                     type="text"
                     placeholder="이메일을 입력하세요"
                     onChange={(e) => setEmail(e.target.value)} 
-                    onKeyDown={(e) => {
+                    onKeyPress={(e) => {
                         if(e.key === 'Enter'){
                             pwFinder();
                         }
