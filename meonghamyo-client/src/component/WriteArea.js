@@ -21,30 +21,27 @@ const WriteArea = () => {
    const [img, setImg] = useState("");
    const [tags, setTags] = useState([]);
    const [errors, setErrors] = useState("");
-   const [viewContent, setViewContent] = useState([]);
 
    //contentSelect(분양게시글, 커뮤니티게시글)
    const handleBoardChange = (event) => {
       setBoardName({ boardName: event.target.value });
+      //console.log(boardName);
    };
-   //title데이터 가져오는 함수
-   // const handleInputValue = (key) => (e) => {
-   //    setTitle({ [key]: e.target.value });
-   // };
 
+   //input 값 넣기
    const getValue = (e) => {
       const { name, value } = e.target;
       setBoardContent({
          ...boardContent,
          [name]: value,
       });
-      console.log(boardContent);
+      //console.log(boardContent);
    };
 
    //태그
    const changeTagsHandler = (name, value) => {
       if (name === "tags") {
-         setTags({ [name]: value });
+         setTags({ tagName: value });
       }
    };
    const history = useHistory();
@@ -61,84 +58,63 @@ const WriteArea = () => {
          setErrors("빈 작성란을 채워주세요");
       } else {
          if (errors) {
-            setErrors(() => {
-               const prevErrors = "";
-               return prevErrors;
-            });
-            //Submit form
-            setViewContent(
-               viewContent.concat({
-                  ...img,
-                  ...boardName,
-                  ...boardContent,
-                  ...tags,
-               })
-            );
+            setErrors("");
             axios
-               .post("https://localhost:4000/content/create", viewContent[0], {
-                  withCredentials: true,
-               })
+               .post(
+                  "https://localhost:4000/content/create",
+                  { ...img, ...boardName, ...boardContent, ...tags },
+                  {
+                     withCredentials: true,
+                  }
+               )
+               // sendTag()
                .then((res) => {
-                  // history.push("/community");
+                  console.log(res);
+                  history.push("/community");
                })
                .catch((err) => {
-                  console.log(err);
+                  console.log(err.response);
                });
          } else {
-            //Submit form
-            setViewContent(
-               viewContent.concat({
-                  ...img,
-                  ...boardName,
-                  ...boardContent,
-                  ...tags,
-               })
-            );
-            console.log(viewContent[0]);
             axios
-               .post("https://localhost:4000/content/create", viewContent[0], {
-                  withCredentials: true,
-               })
+               .post(
+                  "https://localhost:4000/content/create",
+                  { ...img, ...boardName, ...boardContent, ...tags },
+                  {
+                     withCredentials: true,
+                  }
+               )
                .then((res) => {
-                  // history.push("/community");
+                  console.log(res);
+                  console.log("문자열:", tags);
+                  history.push("/community");
                })
                .catch((err) => {
-                  console.log(err);
+                  console.log(err.response);
                });
          }
       }
    };
+   //이미지 URL주소를 받기 위한 과정.
    const selectImage = (e) => {
       if (e.target.files !== null) {
          const fd = new FormData();
          fd.append("image", e.target.files[0]);
-         console.log(fd);
-         setImg({ img: fd });
-
-         setImg(e.target.files[0]);
-
-         // setImg(fd);
-         // axios
-         //    .post("https://localhost:4000/user/profileupload", fd)
-         //    .then((res) => {
-         //       console.log(res);
-         //       setImg(res.data);
-         //    });
+         axios
+            .post("https://localhost:4000/content/profileupload", fd)
+            .then((res) => {
+               console.log(res);
+               setImg({ img: res.data });
+            });
       }
-      // console.log("이건", e.target.files[0]);
    };
-
    return (
       <form className="writeArea" onSubmit={(e) => e.preventDefault()}>
          <div className="contentSelect">
             <label className="contentSelectTitle">게시글 선택</label>
-            <select value={boardName.value} onChange={handleBoardChange}>
-               <option name="parcelOutContent" value="parcelOutContent">
-                  분양 게시글
-               </option>
-               <option name="communityContent" value="communityContent">
-                  커뮤니티 게시글
-               </option>
+            <select onChange={handleBoardChange} name="boardName">
+               <option value="parcelOutContent">분양 게시글</option>
+               <option value="communityContent">커뮤니티 게시글</option>
             </select>
          </div>
          <div>
@@ -161,12 +137,6 @@ const WriteArea = () => {
                onReady={(editor) => {
                   console.log("Editor is ready to use!", editor);
                }}
-               // placeholder를 사용하려면 config설정을 따로 해줘야 한다.
-               // config={{ ckfinder: { uploadUrl: "/uploads" } }}
-
-               // onChange={(event, editor) => {
-               //    handleChange(editor);
-               // }}
                onChange={(event, editor) => {
                   const data = editor.getData();
                   setBoardContent({ ...boardContent, contentBody: data });
@@ -181,11 +151,6 @@ const WriteArea = () => {
             />
          </div>
          <div className="pictureArea">
-            {/* {console.log(img)} */}
-            {/* <img className="userImage" src={`https://localhost:4000/${img}`} /> */}
-
-            {/* <img className="userImage" src={currentUser.img} /> */}
-            {/* <button className="pictureBtn" onClick={}>사진 변경</button> */}
             <input
                type="file"
                accept="image/jpeg, image/jpg, image/png"
@@ -215,7 +180,8 @@ const WriteArea = () => {
                onClick={submitHandler}
             />
             {/* </Link> */}
-            {console.log(viewContent[0])}
+            {/* {console.log(viewContent[0])} */}
+            {console.log(tags)}
          </div>
       </form>
    );
