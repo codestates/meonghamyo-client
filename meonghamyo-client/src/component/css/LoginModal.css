@@ -51,7 +51,7 @@
   border-radius: 1rem;
 }
 .loginBtn:hover {
-  background-color: red;
+  background-color: rgb(65, 65, 65);
 }
 .findUserLink {
   font-size: 14px;
