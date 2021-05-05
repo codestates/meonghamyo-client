@@ -14,6 +14,10 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
     setloginInputValue(newLoginInputValue);
   };
   const handleLogin = () => {
+    if(Object.keys(loginInputValue).length <= 1){
+      alert('모두 입력해주세요.');
+      return;
+    }
     axios
       .post("https://localhost:4000/user/login", {
         ...loginInputValue,
@@ -23,7 +27,10 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
         sessionStorage.setItem('sessionId', res.data.data[0].userInfo.id)
         return axios.get("https://localhost:4000/mypage/userinfo")
       })
-      .catch(err=>err)
+      .catch(err=>{
+        console.log('잘못된 로그인요청', err);
+        alert('이메일과 비밀번호를 확인하세요');
+      })
       .then(res => {
         handleCurrentUser(res.data.data[0].userInfo)})
       .catch(err=>err)

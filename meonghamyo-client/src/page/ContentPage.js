@@ -20,7 +20,7 @@ function ContentPage({ isLogined }){
         const fetchData = async () => {
             await axios.get(`https://localhost:4000/content/${id}`)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 setData(res.data.data[0]);
                 setLoading(false);
             })
@@ -53,7 +53,7 @@ function ContentPage({ isLogined }){
             // 댓글 삭제
             axios.get(`https://localhost:4000/content/${id}`)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 setData(res.data.data[0]);
                 setLoading(false);
             })
@@ -75,7 +75,6 @@ function ContentPage({ isLogined }){
             </section>
         <div className='contentPage'>
             <div className='titleBar'>
-                {/* {console.log(data.contentInfo)} */}
                 <div className='writer'>{data.userContentInfo.nickname}</div>
                 <h2 className='title'>{data.contentInfo.title}</h2>
                 <div className='dateOfUpload'>{`${data.contentInfo.updatedAt.slice(0,4)}/${data.contentInfo.updatedAt.slice(5,7)}/${data.contentInfo.updatedAt.slice(8,10)}`}</div>
@@ -84,6 +83,9 @@ function ContentPage({ isLogined }){
                 <img className='contentImg' src={data.contentInfo.img}/>
                 <div className='contentWord'>
                     {data.contentInfo.contentBody}
+                </div>
+                <div className='contentTags'>
+                    {/* {data.contentInfo.tags.map((tag) => (<div className='contentTag'>#{tag}</div>))} */}
                 </div>
             </div>
             <div className='contentBtnBox'>

@@ -36,7 +36,7 @@ function CommunityList({ isLogined }) {
     }
 
     return(
-        <div>
+        <div className='commulistpage'>
             <section className='sec1'>
             </section>
             <h1 className='communityHead'>커뮤니티 게시판</h1>
