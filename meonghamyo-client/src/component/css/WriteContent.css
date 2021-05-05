@@ -8,15 +8,14 @@
    display: flex;
    flex-direction: column;
    padding: 2%;
-   width: 50%;
+   width: 30%;
    border: 0.2rem solid gray;
    border-radius: 15%;
-   margin-left: 26%;
-   margin-top: 2%;
+   margin-left: 32%;
 }
 .borderContent {
    /* ck에디터가 css안먹힌다. 에디터 사용에 있어서 좀 더 찾아보기 */
-   margin-top: 2%;
+   /* margin-top: 2%; */
 }
 .borderTitle {
    margin-top: 3%;
@@ -46,7 +45,6 @@
    font-weight: bold;
 }
 .writeButton {
-   width: 10%;
    margin-left: 4%;
    margin-top: 5%;
 }
@@ -62,8 +60,8 @@
    font-weight: bold;
    margin-left: 38%;
    font-size: large;
-   margin-top: 10%;
+   margin-top: 3%;
 }
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-   min-height: 300px;
+   min-height: 200px;
 }

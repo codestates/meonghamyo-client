@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/PreSaleListItem.css";
+import { Link } from "react-router-dom";
 
 const PreSaleListItem = ({ posts, loading }) => {
    console.log(posts);
@@ -12,15 +13,20 @@ const PreSaleListItem = ({ posts, loading }) => {
       <div className="itemGroup">
          {posts.map((post) => (
             <div key={post.id} className="item">
-               <img src={post.img} className="image" />
-               <h4 className="itemTitle">{post.title}</h4>
+               <Link className="listLink" to={`/content/${post.id}`}>
+                  <img
+                     src={`https://localhost:4000/${post.img}`}
+                     className="image"
+                  />
+                  <h4 className="itemTitle">{post.title}</h4>
+               </Link>
                <hr />
                <h4>
-                  {/* {posts.tags.map((tag) => (
-                     <div className="tag" key={tag}>
-                        {tag}
+                  {post.tags.map((tag) => (
+                     <div className="tag" key={tag.tagContent.tagId}>
+                        {tag.tagName}
                      </div>
-                  ))} */}
+                  ))}
                </h4>
             </div>
          ))}
