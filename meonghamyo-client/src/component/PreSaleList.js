@@ -3,9 +3,12 @@ import "./css/PreSaleList.css";
 import PreSaleListItem from "./PreSaleListItem";
 import axios from "axios";
 import Pagination from "./Pagination";
+//import { useParams } from "react-router";
 // import { Link } from "react-router-dom";
 
 const PreSaleList = () => {
+   // let params = useParams();
+   // let id = params.id;
    const [posts, setPosts] = useState([]);
    const [loading, setLoading] = useState(false);
    const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +27,18 @@ const PreSaleList = () => {
             });
          setLoading(false);
       };
+      // const fetchTag = async () => {
+      //    setLoading(true);
+      //    await axios
+      //       .get("https://localhost:4000/content/parceloutpage")
+      //       .then((res) => {
+      //          console.log(res.data.data[0].contentInfo); //객체
+      //          //console.log(res.data);
+      //          //console.log(res.data.data[0].contentInfo[0]);
+      //          setPosts(res.data.data[0].contentInfo); //배열
+      //       });
+      //    setLoading(false);
+      // };
       fetchPosts();
    }, []);
 

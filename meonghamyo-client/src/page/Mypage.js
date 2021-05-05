@@ -172,12 +172,7 @@ const Mypage = ({
           commentPerPage={commentPerPage}
         />
       </div>
-      <button className="logoutBtn" onClick={handleLogout}>
-        로그아웃
-      </button>
-      <Footer />
-    </div>
-  );
+   );
 };
 
 export default Mypage;
