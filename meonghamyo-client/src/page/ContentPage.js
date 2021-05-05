@@ -4,6 +4,7 @@ import axios from 'axios';
 import Footer from '../component/Footer';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import reactHtmlParser from 'react-html-parser';
 axios.defaults.withCredentials = true;
 
 
@@ -80,12 +81,12 @@ function ContentPage({ isLogined }){
                 <div className='dateOfUpload'>{`${data.contentInfo.updatedAt.slice(0,4)}/${data.contentInfo.updatedAt.slice(5,7)}/${data.contentInfo.updatedAt.slice(8,10)}`}</div>
             </div>
             <div className='contentBox'>
-                <img className='contentImg' src={data.contentInfo.img}/>
+                <img className='contentImg' src={`https://localhost:4000/${data.contentInfo.img}`}/>
                 <div className='contentWord'>
-                    {data.contentInfo.contentBody}
+                    {reactHtmlParser(data.contentInfo.contentBody)}
                 </div>
                 <div className='contentTags'>
-                    {/* {data.contentInfo.tags.map((tag) => (<div className='contentTag'>#{tag}</div>))} */}
+                    {data.contentInfo.tags.map((tag) => (<div className='contentTag'>#{tag}</div>))}
                 </div>
             </div>
             <div className='contentBtnBox'>

@@ -162,3 +162,4 @@ const Mypage = ({
 };
 
 export default Mypage;
+// 최신화
