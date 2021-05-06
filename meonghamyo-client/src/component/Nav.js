@@ -8,6 +8,7 @@ function Nav({
   openCategoryModal,
   closeCategoryModal,
   loginModal,
+  userLogout,
   openLoginModal,
   closeLoginModal,
   isLogined,
@@ -51,6 +52,7 @@ function Nav({
           open={loginModal}
           close={closeLoginModal}
           userLogin={userLogin}
+          userLogout={userLogout}
           handleCurrentUser={handleCurrentUser}
           currentUser={currentUser}
         />

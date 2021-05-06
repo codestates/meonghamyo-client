@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import fakedata from "../fakedata";
 import "./css/LoginModal.css";
 axios.defaults.withCredentials = true;
-function LoginModal({ open, close, userLogin, handleCurrentUser }) {
+function LoginModal({ open, close, userLogin, userLogout, handleCurrentUser }) {
   const [loginInputValue, setloginInputValue] = useState({}); // 홍
 
   const inputValue = (key) => (e) => {
@@ -23,7 +23,7 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
         ...loginInputValue,
       })
       .then((res) => {
-        userLogin()
+        userLogin();
         sessionStorage.setItem('sessionId', res.data.data[0].userInfo.id)
         return axios.get("https://localhost:4000/mypage/userinfo")
       })
@@ -33,7 +33,10 @@ function LoginModal({ open, close, userLogin, handleCurrentUser }) {
       })
       .then(res => {
         handleCurrentUser(res.data.data[0].userInfo)})
-      .catch(err=>err)
+      .catch((err)=>{
+        userLogout();
+        sessionStorage.removeItem("sessionId");
+      })
   };
   return (
     <div>
