@@ -11,13 +11,20 @@ function CommunityList({ isLogined }) {
    const [currentPage, setCurrentPage] = useState(1);
    const [postsPerPage] = useState(10);
 
+   const reverse = (arr) => {
+      let result = [];
+      for(let i = 0; i < arr.length; i++){
+         result.push(arr[arr.length - 1 - i]);
+      }
+      return result;
+   }
    useEffect(() => {
       const fetchPosts = async () => {
          await axios
             .get("https://localhost:4000/content/communitypage")
             .then((result) => {
                console.log(result);
-               setPosts(result.data.data[0].contentInfo);
+               setPosts(reverse(result.data.data[0].contentInfo));
             });
       };
       fetchPosts();
@@ -67,11 +74,14 @@ function CommunityList({ isLogined }) {
                ))}
             </div>
          </div>
+         {isLogined?
          <div className="newContent">
             <Link className="newContentBtn" to="/writepage">
                새 글쓰기
             </Link>
-         </div>
+         </div>:
+         null}
+         
          <Pagination
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
