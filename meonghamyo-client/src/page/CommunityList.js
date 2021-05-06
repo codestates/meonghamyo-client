@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import '../component/css/CommunityList.css';
-import Pagination from '../component/Pagination';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import Footer from '../component/Footer';
+import React, { useEffect, useState } from "react";
+import "../component/css/CommunityList.css";
+import Pagination from "../component/Pagination";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Footer from "../component/Footer";
 axios.defaults.withCredentials = true;
 
 function CommunityList({ isLogined }) {
+
     // let counter = 0;
     const [posts, setPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-           await axios.get("https://localhost:4000/content/communitypage")
-           .then((result) => {
-               console.log(result)
+   useEffect(() => {
+      const fetchPosts = async () => {
+         await axios
+            .get("https://localhost:4000/content/communitypage")
+            .then((result) => {
+               console.log(result);
                setPosts(result.data.data[0].contentInfo);
            })
         };
         fetchPosts();
     },[]);
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+   const indexOfLastPost = currentPage * postsPerPage;
+   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  
     return(
         <div className='commulistpage'>
             <section className='sec1'>
@@ -53,22 +55,24 @@ function CommunityList({ isLogined }) {
                             </div>
                             <div className='listCreatedAt'>{`${post.createdAt.slice(0,4)}/${post.createdAt.slice(5,7)}/${post.createdAt.slice(8,10)}`}</div>
                         </div>
-                        <hr className='communityhr' />
-                        </>
-                    ))}
-                </div>
+                     </div>
+                     <hr className="communityhr" />
+                  </>
+               ))}
             </div>
-            <div className='newContent'>
-                <Link className='newContentBtn' to='/writepage'>새 글쓰기</Link>
-            </div>
-            <Pagination
+         </div>
+         <div className="newContent">
+            <Link className="newContentBtn" to="/writepage">
+               새 글쓰기
+            </Link>
+         </div>
+         <Pagination
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
             paginate={paginate}
-            />  
-            {/* <Footer /> */}
-        </div>
-    )
+         />
+      </div>
+   );
 }
 
 export default CommunityList;

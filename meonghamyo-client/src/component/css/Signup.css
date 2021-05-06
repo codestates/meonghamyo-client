@@ -1,252 +1,252 @@
 .inputAndName {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
 }
 
 #spanEmail {
-  color: #404040;
-  font-size: 14px;
-  margin-left: 10px;
+   color: #404040;
+   font-size: 14px;
+   margin-left: 10px;
 }
 
 #spanPwd {
-  color: #404040;
-  font-size: 14px;
+   color: #404040;
+   font-size: 14px;
 }
 
 #spanPwdCheck {
-  color: #404040;
-  font-size: 14px;
+   color: #404040;
+   font-size: 14px;
 }
 
 #spanName {
-  color: #404040;
-  font-size: 14px;
-  margin-left: 10px;
+   color: #404040;
+   font-size: 14px;
+   margin-left: 10px;
 }
 
 #spanBirth {
-  color: #404040;
-  font-size: 14px;
+   color: #404040;
+   font-size: 14px;
 }
 
 #spanNickname {
-  color: #404040;
-  font-size: 14px;
+   color: #404040;
+   font-size: 14px;
 }
 
 .inputArea {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding-top: 20px;
 
-  /* padding-left: 585px; */
+   /* padding-left: 585px; */
 }
 
 .iconDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
 }
 .errorDiv {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
-  margin-right: 150px;
+   color: red;
+   font-weight: bold;
+   font-size: 11px;
+   margin-right: 150px;
 }
 
 .errorEmail {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
-  margin-left: 10px;
+   color: red;
+   font-weight: bold;
+   font-size: 11px;
+   margin-left: 10px;
 }
 
 .errorPwd {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
+   color: red;
+   font-weight: bold;
+   font-size: 11px;
 }
 
 .errorPwdCheck {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
+   color: red;
+   font-weight: bold;
+   font-size: 11px;
 }
 
 .errorName {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
-  margin-left: 10px;
+   color: red;
+   font-weight: bold;
+   font-size: 11px;
+   margin-left: 10px;
 }
 
 .errorNickname {
-  color: red;
-  font-weight: bold;
-  font-size: 11px;
+   color: red;
+   font-weight: bold;
+   font-size: 11px;
 }
 
 .accessDiv {
-  color: #08a600;
-  font-weight: bold;
-  font-size: 11px;
-  margin-right: 150px;
+   color: #08a600;
+   font-weight: bold;
+   font-size: 11px;
+   margin-right: 150px;
 }
 
 .emailDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 
 .pwdDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 
 .pwdCheckDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 
 .nameDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 
 .birthDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 
 .birthInputDiv {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 .nicknameDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background-color: rgba(255, 192, 203, 0.493);
-  width: 25%;
-  margin-left: 37.5%;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
+   background-color: rgba(255, 192, 203, 0.493);
+   width: 25%;
+   margin-left: 37.5%;
+   border-radius: 10px;
+   padding-bottom: 30px;
+   margin-bottom: 10px;
 }
 .signupForm {
-  align-items: center;
-  text-align: center;
+   align-items: center;
+   text-align: center;
 }
 .inputAreaBirth {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* margin-left: 50px; */
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* margin-left: 50px; */
 }
 
 .inputArea span {
-  color: #404040;
-  font-size: 14px;
-  position: relative;
-  margin-bottom: 8px;
+   color: #404040;
+   font-size: 14px;
+   position: relative;
+   margin-bottom: 8px;
 }
 
-p {
-  color: #9a9a9a;
-  font-size: 14px;
+.signUpPtag {
+   color: #9a9a9a;
+   font-size: 14px;
 }
 
 .inputArea input {
-  width: 300px;
-  height: 50px;
+   width: 300px;
+   height: 50px;
 }
 
 .inputArea2 {
-  display: flex;
-  justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .inputYear {
-  width: 100px;
+   width: 100px;
 }
 
 .signupBtn {
-  background-color: black;
-  color: white;
-  font-weight: 600;
-  font-size: 20px;
-  margin-top: 40px;
-  /* margin-left: 50px; */
-  width: 300px;
-  height: 50px;
+   background-color: black;
+   color: white;
+   font-weight: 600;
+   font-size: 20px;
+   margin-top: 40px;
+   /* margin-left: 50px; */
+   width: 300px;
+   height: 50px;
 }
 
 .inputMonth {
-  width: 90px;
-  height: 55px;
-  margin: 20px;
+   width: 90px;
+   height: 55px;
+   margin: 20px;
 }
 
 .inputYear {
-  width: 80px;
-  height: 50px;
+   width: 80px;
+   height: 50px;
 }
 
 .inputDay {
-  width: 80px;
-  height: 50px;
+   width: 80px;
+   height: 50px;
 }
