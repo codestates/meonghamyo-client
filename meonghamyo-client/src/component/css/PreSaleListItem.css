@@ -4,17 +4,25 @@
 }
 .item {
    padding: 2%;
-   width: 30%;
+   width: 12%;
+   overflow:hidden;
+   margin: 3%;
    border: 0.2rem solid gray;
    border-radius: 15%;
    margin-top: 2%;
    margin-bottom: 1%;
    text-align: center;
+   background-color: white;
+   transition-duration: 0.5s;
 }
-
+.item:hover {
+   background-color: rgb(236, 236, 236);
+}
 .image {
-   width: 70%;
+   width: 100%;
+   height: 50%;
    margin-top: 12%;
+   border-radius: 10px;
 }
 .itemGroup {
    display: flex;

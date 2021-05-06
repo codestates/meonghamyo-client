@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import fakedata from "../fakedata";
 import "./css/LoginModal.css";
 axios.defaults.withCredentials = true;
 function LoginModal({ open, close, userLogin, userLogout, handleCurrentUser }) {

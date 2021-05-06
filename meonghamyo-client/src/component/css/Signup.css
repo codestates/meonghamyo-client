@@ -190,6 +190,10 @@
    align-items: center;
    text-align: center;
 }
+.signupForm input {
+   border:solid 1px rgb(230, 230, 230);
+   border-radius: 5px;
+}
 .inputAreaBirth {
    text-align: left;
    display: flex;
@@ -239,6 +243,9 @@
    width: 90px;
    height: 55px;
    margin: 20px;
+   border-radius: 5px;
+   border: solid 1px rgb(230, 230, 230);
+   background-color: white;
 }
 
 .inputYear {

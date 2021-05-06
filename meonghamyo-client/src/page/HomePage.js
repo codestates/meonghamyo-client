@@ -1,6 +1,4 @@
-import Footer from "../component/Footer";
 import '../component/css/HomePage.css'
-import { useState } from "react";
 import { Link } from "react-router-dom";
 function HomePage() {
 

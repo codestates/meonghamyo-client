@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import CategoryModal from "../component/CategoryModal";
 import LoginModal from "../component/LoginModal";
@@ -25,12 +25,16 @@ function Nav({
             <AiOutlineMenu />
           </li>
           <li id="navLogo">
-            <Link className='logo' to='/'>MeongHaMyo</Link>
+            <Link className='logo' to='/'>
+              <div className='logoImg'></div>멍하묘?
+            </Link>
             </li>
           {isLogined && currentUser  ?  (
             <>
               <Link to="/mypage">
-                <img className="profileImg" src={`https://localhost:4000/${currentUser.img}`} />
+                <img className="profileImg" src={currentUser.img === null?
+            'https://studyclix.blob.core.windows.net/static/content/file/avatars/b/b2a179c4-bae4-4eaa-ae2e-6a4b8b5f720a.png'
+            :`https://localhost:4000/${currentUser.img}`} />
               </Link>
             </>
             // 홍  이미지 바꾼 부분

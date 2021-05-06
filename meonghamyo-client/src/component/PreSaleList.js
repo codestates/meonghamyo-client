@@ -12,7 +12,7 @@ const PreSaleList = () => {
    const [posts, setPosts] = useState([]);
    const [loading, setLoading] = useState(false);
    const [currentPage, setCurrentPage] = useState(1);
-   const [postsPerPage] = useState(4); //페이지당 나오는 아이템 갯수
+   const [postsPerPage] = useState(8); //페이지당 나오는 아이템 갯수
 
    // const [tag, setTag] = useState("");
    // const handleTag = (event) => {

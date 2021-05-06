@@ -1,7 +1,7 @@
 // import './App.css';
 import "./component/css/Nav.css";
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import MainPage from "./page/MainPage";
 import CommunityList from "./page/CommunityList.js";
 import ContentPage from "./page/ContentPage.js";

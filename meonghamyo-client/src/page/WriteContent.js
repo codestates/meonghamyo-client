@@ -8,7 +8,7 @@ import WriteArea from "../component/WriteArea";
 function WriteContent() {
    let params = useParams();
    return (
-      <div>
+      <div className='writepage'>
          <div className="writeContentHeader">게시글 작성</div>
          <hr className="borderHr" />
 

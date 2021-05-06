@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+html, body {
+  font-family: 'Sunflower', sans-serif;
+}
 .navContainer {
   position: fixed;
   top: 0;
@@ -72,4 +77,24 @@
 body {
   margin-top: 70px;
   padding-top: 0px;
+}
+#navLogo {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.logoImg {
+  background-color: white;
+  width: 100px;
+  height: 70px;
+  background-image: url("https://cdn.discordapp.com/attachments/830042569349529635/839857135654273044/unknown.png");
+  background-size: cover;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.logo{
+  display: flex;
+  line-height: 70px;
 }

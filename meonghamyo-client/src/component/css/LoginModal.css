@@ -49,6 +49,9 @@
   margin-top: 15px;
   height: 80px;
   border-radius: 1rem;
+  background-color: black;
+  color: white;
+  font-weight: bold;
 }
 .loginBtn:hover {
   background-color: rgb(65, 65, 65);

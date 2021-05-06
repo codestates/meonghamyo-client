@@ -65,14 +65,14 @@ h1 {
 }
 
 .tag {
-   background-color: #f1f1f1;
    color: black;
-   padding: 5px 10px;
-   border-radius: 4px;
-   font-size: 12px;
-   margin-right: 5px;
-   margin-bottom: 5px;
-   transition: background-color 0.3s ease;
+   text-decoration-line: underline;
+   font-weight: bold;
+   border-radius: 50px;
+   border: none;
+   padding: 3px;
+   background:none;
+   margin: 5px;
 }
 .tag.i {
    margin-left: 5px;
@@ -80,8 +80,9 @@ h1 {
 }
 
 .tag:hover {
-   background-color: darken(#f1f1f1, 10);
-   color: white;
+   background-color: rgb(236, 236, 236);
+   color: blue;
+   cursor: pointer;
 }
 
 .error {
@@ -110,4 +111,7 @@ h1 {
 }
 .explanationTag {
    color: gray;
+}
+.tagBox {
+   margin: 0;
 }
