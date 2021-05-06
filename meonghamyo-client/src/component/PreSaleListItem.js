@@ -50,7 +50,7 @@ const PreSaleListItem = ({ posts, loading }) => {
                   <h4 className="itemTitle">{post.title}</h4>
                </Link>
                <hr />
-               <h4>
+               <h4 className='tagBox'>
                   {post.tags.map((tag) => (
                      // <Link className="listLink" to={`/taginfo/${tag.tagName}`}>
                      <button

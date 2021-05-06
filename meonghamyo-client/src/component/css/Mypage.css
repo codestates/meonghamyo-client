@@ -3,13 +3,13 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 400px;
-  margin-left : 150px;
-  padding-bottom: 100px;
-  padding-top : 70px
-
+  /* height: 400px; */
+  /* margin-left : 150px; */
+  padding-left: 10%;
+  padding-bottom: 50px;
+  padding-top : 30px;
 }
-
+.mypageTitle
 .userInfoText {
   display: flex;
   flex-direction: row;
@@ -19,15 +19,20 @@
   width: 100%;
 }
 
+.pictureArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .inputFileButton{
   padding: 6px 25px;
   background-color:black;
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  position: relative;
-  right: 220px;
-  top : 30px;
 }
 
 .userInfoText span {
@@ -43,33 +48,67 @@
   padding: 40px;
   width: 250px;
   height: 250px;
-  border-radius: 70%;
+  border-radius: 100%;
 }
 .modifyBtnDiv{
   display: flex;
-  margin-left: 800px;
-  margin-top: 520px;
+  align-items: flex-end;
+  vertical-align: bottom;
+  height: 80%;
+  /* line-height: 0px; */
 }
 .modifyBtnDiv button{
   width : 100px;
   height: 40px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+  transition-duration: 0.5s;
+}
+.modifyBtnDiv button:hover {
+  color: black;
+  background-color: white;
 }
 
 .listBtnDiv {
+  padding-left: 5%;
   display: flex;
   justify-content: flex-start;
 }
 
-.postList {
-  border: solid 1px;
-  width: 100%;
-  height: 400px;
+.listBtnDiv button {
+  background-color: white;
+  color:black;
+  font-weight: bold;
+  border: solid 1px rgb(233, 233, 233);
+  margin: 2px;
+}
+.listBtnDiv button:hover {
+  color: white;
+  background-color: black;
+}
+.postList hr {
+  width: 90%;
 }
 
+.postList {
+  border-top: solid 2px;
+  align-items: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 100%;
+  height: 100%;
+  /* background-color: rgb(247, 247, 247); */
+}
+#listTitle {
+  padding-left: 5%;
+}
 .userPostList {
   display: flex;
   flex-direction: row;
   width: 100%;
+  padding-left: 5%;
 }
 
 .h1PostComment {
@@ -85,13 +124,8 @@
 .userContent {
   margin: 10px;
 }
-
-button {
-  background-color: black;
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  margin: 2px;
+.userContent:hover {
+  font-weight: bold;
 }
 
 button:hover {
@@ -100,15 +134,15 @@ button:hover {
 
 .mypageTitle {
   text-align: left;
+  background-color: rgb(233, 233, 233);
   padding: 30px;
+  padding-left: 15%;
+  width: 100%;
+  margin: 0;
 }
 
 .userInfoTable {
-  width: 100%;
-  border-spacing: 25px;
-  position:absolute;
-  margin-left: 400px;
-  
+  border-spacing: 20px;
 }
 
 .userInfoTable tr {
@@ -120,6 +154,9 @@ button:hover {
   font-weight: 600;
   font-size: 17px;
   padding-bottom: 20px;
+}
+.userInfoTable td {
+  padding-left: 180px;
 }
 
 .userInfoTable button {
@@ -156,10 +193,44 @@ button:hover {
   font-size: 40px;
 }
 
-#listTitle{
-  margin-left : 45%;
-}
-
 .h1PostComment{
   margin-left: 270px;
+}
+
+.infoTableOfUser {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  padding-left: 10%;
+  align-items: center;
+}
+
+.userPwdModifyBtn {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+.userPwdModifyBtn:hover {
+  background-color: white;
+  color: black;
+}
+
+.mypageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logoutBtn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  transition-duration: 0.5s;
+}
+.logoutBtn:hover {
+  background-color: white;
+  color: black;
 }

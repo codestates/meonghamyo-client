@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../component/css/ContentPage.css";
 import axios from "axios";
-import Footer from "../component/Footer";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import reactHtmlParser from "react-html-parser";
@@ -111,16 +110,16 @@ function ContentPage({ isLogined }){
             </div>
             <div className='contentBtnBox'>
                 {(data.contentInfo.userId === loginedUser)?
-                <button>
+                <button className='conpageBtn'>
                     <div className='contentBtn' onClick={del}>삭제</div>
                 </button>
                 :null}
                 {(data.contentInfo.userId === loginedUser)?
-                <button >
+                <button className='conpageBtn'>
                     <Link className='contentBtn' to={`/writepage/${id}`}>수정</Link>
                 </button>
                 :null}
-                <button >
+                <button className='conpageBtn'>
                     {(data.contentInfo.boardName==='communityContent')?
                     <Link className='contentBtn' to='/community'>글 목록 이동</Link>
                     :<Link className='contentBtn' to='/parcelout'>글 목록 이동</Link>}
@@ -180,7 +179,6 @@ function ContentPage({ isLogined }){
                   </div>
                ) : null}
             </div>
-            <Footer />
          </div>
       </div>
    );

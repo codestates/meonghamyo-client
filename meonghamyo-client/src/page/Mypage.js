@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import UserInfoTable from "../component/UserInfoTable";
 import UserPostList from "../component/UserPostList";
 import axios from "axios";
-import Footer from "../component/Footer";
 axios.defaults.withCredentials = true;
 const Mypage = ({
   currentUser,
@@ -111,14 +110,16 @@ const Mypage = ({
       놨습니다!
     </div>
   ) : (
-    <div>
+    <div className='mypageBox'>
       <h1 className="mypageTitle">회원정보</h1>
-      <hr></hr>
+      {/* <hr></hr> */}
       <div className="userInfoArea">
         <div className="pictureArea">
           <img
             className="userImage"
-            src={`https://localhost:4000/${currentUser.img}`}
+            src={currentUser.img === null?
+            'https://studyclix.blob.core.windows.net/static/content/file/avatars/b/b2a179c4-bae4-4eaa-ae2e-6a4b8b5f720a.png'
+            :`https://localhost:4000/${currentUser.img}`}
           />
           <label className="inputFileButton" for="inputFile">
             업로드
@@ -131,12 +132,14 @@ const Mypage = ({
             onChange={selectImage}
           ></input>
         </div>
-        <UserInfoTable
-          currentUser={currentUser}
-          closeLoginModal={closeLoginModal}
-          userLogout={userLogout}
-          handleCurrentUser={handleCurrentUser}
-        />
+        <div className='infoTableOfUser'>
+          <UserInfoTable
+            currentUser={currentUser}
+            closeLoginModal={closeLoginModal}
+            userLogout={userLogout}
+            handleCurrentUser={handleCurrentUser}
+          />
+        </div>
       </div>
       <div className="postList">
         <h1 id="listTitle">내가 쓴 글 리스트</h1>

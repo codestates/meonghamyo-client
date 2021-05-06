@@ -66,6 +66,7 @@
    line-height: 100%;
    display: flex;
    padding: 10px;
+   transition-duration: 0.5s;
 }
 .listItem:hover {
    background-color: rgb(240, 240, 240);
@@ -107,6 +108,7 @@
    border-radius: 5px;
    background-color: white;
    text-decoration-line: none;
+   transition-duration: 0.5s;
 }
 .newContentBtn:hover {
    color: white;

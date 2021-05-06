@@ -4,7 +4,6 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import TagsInput from "./TagsInput";
 import "./css/TagsInput.css";
-import { FaPlusCircle } from "react-icons/fa";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
