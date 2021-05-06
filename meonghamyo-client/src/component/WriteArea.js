@@ -71,7 +71,7 @@ const WriteArea = () => {
                .then((res) => {
                   console.log("이건 res", res);
                   if (res.data.data[0].boardName === "parcelOutContent") {
-                     history.push("/parselout");
+                     history.push("/parcelout");
                   } else {
                      history.push("/community");
                   }
@@ -92,7 +92,7 @@ const WriteArea = () => {
                   console.log(res);
                   console.log("문자열:", tags);
                   if (res.data.data[0].boardName === "parcelOutContent") {
-                     history.push("/parselout");
+                     history.push("/parcelout");
                   } else {
                      history.push("/community");
                   }
