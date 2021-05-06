@@ -66,6 +66,7 @@ h1 {
 
 .tag {
    background-color: #f1f1f1;
+   color: black;
    padding: 5px 10px;
    border-radius: 4px;
    font-size: 12px;
@@ -80,6 +81,7 @@ h1 {
 
 .tag:hover {
    background-color: darken(#f1f1f1, 10);
+   color: white;
 }
 
 .error {

@@ -12,111 +12,113 @@ import WriteContent from "./page/WriteContent";
 import HomePage from "./page/HomePage";
 import FindUser from "./page/FindUser";
 import axios from "axios";
+import PreSaleList from "./component/PreSaleList";
 
 function App() {
-  const [currentUser, setcurrentUser] = useState(null); // 홍
-  const [categoryModal, setCategoryModal] = useState(false); // 덕
-  const [loginModal, setLoginModal] = useState(false); // 덕
-  const [isLogined, setIsLogined] = useState(false); // 덕
+   const [currentUser, setcurrentUser] = useState(null); // 홍
+   const [categoryModal, setCategoryModal] = useState(false); // 덕
+   const [loginModal, setLoginModal] = useState(false); // 덕
+   const [isLogined, setIsLogined] = useState(false); // 덕
 
-  const openCategoryModal = () => {
-    // 덕
-    setCategoryModal(true);
-  };
-  const closeCategoryModal = () => {
-    // 덕
-    setCategoryModal(false);
-  };
-  const openLoginModal = () => {
-    // 덕
-    setLoginModal(true);
-  };
-  const closeLoginModal = () => {
-    // 덕
-    setLoginModal(false);
-  };
-  const handleCurrentUser = (userInfo) => {
-    // 홍
-    setcurrentUser(userInfo);
-  };
+   const openCategoryModal = () => {
+      // 덕
+      setCategoryModal(true);
+   };
+   const closeCategoryModal = () => {
+      // 덕
+      setCategoryModal(false);
+   };
+   const openLoginModal = () => {
+      // 덕
+      setLoginModal(true);
+   };
+   const closeLoginModal = () => {
+      // 덕
+      setLoginModal(false);
+   };
+   const handleCurrentUser = (userInfo) => {
+      // 홍
+      setcurrentUser(userInfo);
+   };
 
-  const userLogin = () => {
-    // 덕
-    setIsLogined(true);
-  };
-  const userLogout = () => {
-    //홍
-    setIsLogined(false);
-  };
+   const userLogin = () => {
+      // 덕
+      setIsLogined(true);
+   };
+   const userLogout = () => {
+      //홍
+      setIsLogined(false);
+   };
 
-  useEffect(()=>{
-    if(sessionStorage.length!==0){
-      axios.get("https://localhost:4000/mypage/userinfo")
-      .then(res => {
-        handleCurrentUser(res.data.data[0].userInfo)
-        setIsLogined(true)
-      })
-      
-    }
-  },[])
-  return (
-    <div className="App">
-      <Switch>
-        <Route path="/mypage">
-          <Mypage
-            currentUser={currentUser}
-            userLogout={userLogout}
+   useEffect(() => {
+      if (sessionStorage.length !== 0) {
+         axios.get("https://localhost:4000/mypage/userinfo").then((res) => {
+            handleCurrentUser(res.data.data[0].userInfo);
+            setIsLogined(true);
+         });
+      }
+   }, []);
+   return (
+      <div className="App">
+         <Switch>
+            <Route path="/mypage">
+               <Mypage
+                  currentUser={currentUser}
+                  userLogout={userLogout}
+                  closeLoginModal={closeLoginModal}
+                  handleCurrentUser={handleCurrentUser}
+               />
+            </Route>
+
+            <Route path="/signup">
+               <Signup
+                  currentUser={currentUser}
+                  handleCurrentUser={handleCurrentUser}
+               ></Signup>
+            </Route>
+
+            <Route path="/finduser">
+               <FindUser />
+            </Route>
+
+            <Route exact path="/community">
+               <CommunityList isLogined={isLogined} />
+            </Route>
+
+            <Route exact path="/parselout">
+               <MainPage />
+            </Route>
+
+            <Route path="/content/:id">
+               <ContentPage isLogined={isLogined} />
+            </Route>
+
+            <Route path="/taginfo/:tag">
+               <PreSaleList></PreSaleList>
+            </Route>
+
+            <Route exact path="/">
+               <HomePage />
+            </Route>
+
+            <Route path="/writepage">
+               <WriteContent />
+            </Route>
+         </Switch>
+         <Nav
+            categoryModal={categoryModal}
+            openCategoryModal={openCategoryModal}
+            closeCategoryModal={closeCategoryModal}
+            loginModal={loginModal}
+            openLoginModal={openLoginModal}
             closeLoginModal={closeLoginModal}
+            isLogined={isLogined}
+            userLogin={userLogin}
             handleCurrentUser={handleCurrentUser}
-          />
-        </Route>
-      
-        <Route path="/signup">
-          <Signup
             currentUser={currentUser}
-            handleCurrentUser={handleCurrentUser}
-          ></Signup>
-        </Route>
-
-        <Route path="/finduser">
-          <FindUser />
-        </Route>  
-
-        <Route exact path="/community">
-          <CommunityList isLogined={isLogined} />
-        </Route>
-
-        <Route exact path="/parselout">
-          <MainPage />
-        </Route>
-
-        <Route path="/content/:id">
-            <ContentPage isLogined={isLogined} />
-        </Route>
-
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-
-        <Route path="/writepage">
-          <WriteContent />
-        </Route>
-      </Switch>
-      <Nav
-        categoryModal={categoryModal}
-        openCategoryModal={openCategoryModal}
-        closeCategoryModal={closeCategoryModal}
-        loginModal={loginModal}
-        openLoginModal={openLoginModal}
-        closeLoginModal={closeLoginModal}
-        isLogined={isLogined}
-        userLogin={userLogin}
-        handleCurrentUser={handleCurrentUser}
-        currentUser={currentUser}
-        
-      />
-    </div>
-  );
+         />
+      </div>
+   );
 }
 
 export default App;

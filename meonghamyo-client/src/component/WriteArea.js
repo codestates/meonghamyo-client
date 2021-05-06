@@ -69,8 +69,12 @@ const WriteArea = () => {
                )
                // sendTag()
                .then((res) => {
-                  console.log(res);
-                  history.push("/community");
+                  console.log("이건 res", res);
+                  if (res.data.data[0].boardName === "parcelOutContent") {
+                     history.push("/parselout");
+                  } else {
+                     history.push("/community");
+                  }
                })
                .catch((err) => {
                   console.log(err.response);
@@ -87,7 +91,11 @@ const WriteArea = () => {
                .then((res) => {
                   console.log(res);
                   console.log("문자열:", tags);
-                  history.push("/community");
+                  if (res.data.data[0].boardName === "parcelOutContent") {
+                     history.push("/parselout");
+                  } else {
+                     history.push("/community");
+                  }
                })
                .catch((err) => {
                   console.log(err.response);

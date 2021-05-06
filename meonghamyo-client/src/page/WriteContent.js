@@ -10,7 +10,6 @@ function WriteContent() {
          <div className="writeContentHeader">게시글 작성</div>
          <hr className="borderHr" />
          <WriteArea />
-         <Footer></Footer>
       </div>
    );
 }
