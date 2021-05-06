@@ -21,7 +21,7 @@ function ContentPage({ isLogined }){
         const fetchData = async () => {
             await axios.get(`https://localhost:4000/content/${id}`)
             .then((res) => {
-                // console.log(res)
+                console.log(res)
                 setData(res.data.data[0]);
                 setLoading(false);
             })
@@ -86,7 +86,7 @@ function ContentPage({ isLogined }){
                     {reactHtmlParser(data.contentInfo.contentBody)}
                 </div>
                 <div className='contentTags'>
-                    {data.contentInfo.tags.map((tag) => (<div className='contentTag'>#{tag}</div>))}
+                    {data.contentInfo.tags.map((tag) => (<div className='contentTag'>#{tag.tagName}</div>))}
                 </div>
             </div>
             <div className='contentBtnBox'>
@@ -97,13 +97,13 @@ function ContentPage({ isLogined }){
                 :null}
                 {(data.contentInfo.userId === loginedUser)?
                 <button >
-                    <Link className='contentBtn' to={`/writepage`}>수정</Link>
+                    <Link className='contentBtn' to={`/writepage/${id}`}>수정</Link>
                 </button>
                 :null}
                 <button >
                     {(data.contentInfo.boardName==='communityContent')?
                     <Link className='contentBtn' to='/community'>글 목록 이동</Link>
-                    :<Link className='contentBtn' to='/parselout'>글 목록 이동</Link>}
+                    :<Link className='contentBtn' to='/parcelout'>글 목록 이동</Link>}
                 </button>
             </div>
             <div className='commentSection'>

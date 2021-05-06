@@ -86,7 +86,7 @@ function App() {
           <CommunityList isLogined={isLogined} />
         </Route>
 
-        <Route exact path="/parselout">
+        <Route exact path="/parcelout">
           <MainPage />
         </Route>
 
@@ -98,7 +98,11 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route path="/writepage">
+        <Route exact path="/writepage">
+          <WriteContent />
+        </Route>
+
+        <Route path="/writepage/:id">
           <WriteContent />
         </Route>
       </Switch>
@@ -111,6 +115,7 @@ function App() {
         closeLoginModal={closeLoginModal}
         isLogined={isLogined}
         userLogin={userLogin}
+        userLogout={userLogout}
         handleCurrentUser={handleCurrentUser}
         currentUser={currentUser}
         

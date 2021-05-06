@@ -32,6 +32,11 @@
     margin: 50px;
     margin-bottom: 10px;
 }
+.contentImg {
+    width: 70%;
+    /* border: solid; */
+    border-radius: 20px;
+}
 .contentWord {
     width: 70%;
     height: 200px;
@@ -42,6 +47,11 @@
     overflow: auto;
     border-radius: 20px;
     background-color: white;
+}
+.contentWord p {
+    color:black;
+    padding: 0;
+    margin: 0;
 }
 .contentBtnBox {
     display: flex;
@@ -147,6 +157,6 @@
     font-weight: bold;
     border-radius: 50px;
     padding: 3px;
-    background-color:rgb(247, 194, 202);
+    background-color:hotpink;
     margin: 5px;
 }

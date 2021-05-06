@@ -9,7 +9,6 @@ axios.defaults.withCredentials = true;
 function CommunityList({ isLogined }) {
     // let counter = 0;
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
 
@@ -20,9 +19,7 @@ function CommunityList({ isLogined }) {
                console.log(result)
                setPosts(result.data.data[0].contentInfo);
            })
-           setLoading(false);
         };
-  
         fetchPosts();
     },[]);
 
@@ -30,10 +27,6 @@ function CommunityList({ isLogined }) {
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    if(loading) {
-        return <h2>Loading...</h2>
-    }
 
     return(
         <div className='commulistpage'>
@@ -73,7 +66,7 @@ function CommunityList({ isLogined }) {
             totalPosts={posts.length}
             paginate={paginate}
             />  
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
