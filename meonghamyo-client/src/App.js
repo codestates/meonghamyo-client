@@ -84,10 +84,10 @@ function App() {
             <Route exact path="/community">
                <CommunityList isLogined={isLogined} />
             </Route>
-
-            <Route exact path="/parselout">
-               <MainPage />
-            </Route>
+        <Route exact path="/parcelout">
+          <MainPage />
+        </Route>
+  
 
             <Route path="/content/:id">
                <ContentPage isLogined={isLogined} />
@@ -104,6 +104,11 @@ function App() {
             <Route path="/writepage">
                <WriteContent />
             </Route>
+     
+     <Route path="/writepage/:id">
+          <WriteContent />
+        </Route>
+     
          </Switch>
          <Nav
             categoryModal={categoryModal}
@@ -119,6 +124,7 @@ function App() {
          />
       </div>
    );
+       
 }
 
 export default App;

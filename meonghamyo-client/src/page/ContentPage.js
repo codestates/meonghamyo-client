@@ -7,26 +7,26 @@ import { Link } from "react-router-dom";
 import reactHtmlParser from "react-html-parser";
 axios.defaults.withCredentials = true;
 
-function ContentPage({ isLogined }) {
-   let params = useParams();
-   let id = params.id;
-   const [data, setData] = useState(null);
-   const [loading, setLoading] = useState(true);
-   const [writeComment, setWriteComment] = useState(false);
-   const [comment, setComment] = useState("");
-   const [loginedUser, setLoginedUser] = useState("");
+function ContentPage({ isLogined }){
+    let params = useParams();
+    let id = params.id;
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [writeComment, setWriteComment] = useState(false);
+    const [comment, setComment] = useState('');
+    const [loginedUser, setLoginedUser] = useState('');
 
-   useEffect(() => {
-      const fetchData = async () => {
-         await axios.get(`https://localhost:4000/content/${id}`).then((res) => {
-            console.log(res);
-            setData(res.data.data[0]);
-            setLoading(false);
-         });
-      };
-      const isSame = async () => {
-         await axios
-            .get("https://localhost:4000/mypage/userinfo")
+    useEffect(() => {
+        const fetchData = async () => {
+            await axios.get(`https://localhost:4000/content/${id}`)
+            .then((res) => {
+                console.log(res)
+                setData(res.data.data[0]);
+                setLoading(false);
+            })
+        };
+        const isSame = async () => {
+            await axios.get('https://localhost:4000/mypage/userinfo')
             .then((res) => {
                // console.log(res)
                setLoginedUser(res.data.data[0].userInfo.id);
@@ -90,8 +90,8 @@ function ContentPage({ isLogined }) {
                   7
                )}/${data.contentInfo.updatedAt.slice(8, 10)}`}</div>
             </div>
-            <div className="contentBox">
-               {data.contentInfo.img === null ? (
+            <div className='contentBox'>
+                  {data.contentInfo.img === null ? (
                   <img
                      className="contentImg"
                      src={`https://dash-bootstrap-components.opensource.faculty.ai/static/images/placeholder286x180.png`}
@@ -102,41 +102,29 @@ function ContentPage({ isLogined }) {
                      src={`https://localhost:4000/${data.contentInfo.img}`}
                   />
                )}
-               <div className="contentWord">
-                  {reactHtmlParser(data.contentInfo.contentBody)}
-               </div>
-               <div className="contentTags">
-                  {data.contentInfo.tags.map((tag) => (
-                     <div className="contentTag">#{tag.tagName}</div>
-                  ))}
-               </div>
+                <div className='contentWord'>
+                    {reactHtmlParser(data.contentInfo.contentBody)}
+                </div>
+                <div className='contentTags'>
+                    {data.contentInfo.tags.map((tag) => (<div className='contentTag'>#{tag.tagName}</div>))}
+                </div>
             </div>
-            <div className="contentBtnBox">
-               {data.contentInfo.userId === loginedUser ? (
-                  <button>
-                     <div className="contentBtn" onClick={del}>
-                        삭제
-                     </div>
-                  </button>
-               ) : null}
-               {data.contentInfo.userId === loginedUser ? (
-                  <button>
-                     <Link className="contentBtn" to={`/writepage/${id}`}>
-                        수정
-                     </Link>
-                  </button>
-               ) : null}
-               <button>
-                  {data.contentInfo.boardName === "communityContent" ? (
-                     <Link className="contentBtn" to="/community">
-                        글 목록 이동
-                     </Link>
-                  ) : (
-                     <Link className="contentBtn" to="/parcelout">
-                        글 목록 이동
-                     </Link>
-                  )}
-               </button>
+            <div className='contentBtnBox'>
+                {(data.contentInfo.userId === loginedUser)?
+                <button>
+                    <div className='contentBtn' onClick={del}>삭제</div>
+                </button>
+                :null}
+                {(data.contentInfo.userId === loginedUser)?
+                <button >
+                    <Link className='contentBtn' to={`/writepage/${id}`}>수정</Link>
+                </button>
+                :null}
+                <button >
+                    {(data.contentInfo.boardName==='communityContent')?
+                    <Link className='contentBtn' to='/community'>글 목록 이동</Link>
+                    :<Link className='contentBtn' to='/parcelout'>글 목록 이동</Link>}
+                </button>
             </div>
             <div className="commentSection">
                <div className="nameOfSection">댓글 목록</div>

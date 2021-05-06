@@ -8,10 +8,10 @@
    display: flex;
    flex-direction: column;
    padding: 2%;
-   width: 30%;
+   width: 44%;
    border: 0.2rem solid gray;
    border-radius: 15%;
-   margin-left: 32%;
+   margin-left: 35%;
 }
 .borderContent {
    /* ck에디터가 css안먹힌다. 에디터 사용에 있어서 좀 더 찾아보기 */
